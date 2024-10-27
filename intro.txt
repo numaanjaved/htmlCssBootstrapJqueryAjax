@@ -1,0 +1,13 @@
+Congratulations that you reached here. 
+
+What you have done in yuor last task, it is now time to create all of that in html css, bootstrap and jquery. 
+
+javascript will not be used for everything now, the front end should be in html css, focus more on using bootstrap. 
+
+jquery and javascript and bootstrap should be used where most essential.
+
+Backend validation, storage of data and login code should also be done in jquery 
+
+and use ajax as well 
+
+Best of luck 
