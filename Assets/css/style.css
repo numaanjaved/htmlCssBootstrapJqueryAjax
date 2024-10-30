@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+body {
+  scroll-behavior: smooth;
+}
+:root {
+  --primary-font-color: #2b2b2b;
+  --sky-blue: #90c5cf;
+  --light-grey: #eaeaea;
+  --light-sky: #d0e5e8;
+  --white-color: #fff;
+  --error-color: #a31b1b;
+  --btn-green: #31b231;
+  --btn-green-hover: #249324;
+  --btn-red: #ca2d2d;
+  --btn-red-hover: #a31b1b;
+  --btn-blue: #498df3;
+  --btn-blue-hover: #3170ce;
+}
+.header {
+  height: 9rem;
+  background-color: var(--sky-blue);
+  width: 100%;
+  .navbar {
+    height: 100%;
+    width: 100%;
+    > .fa-address-card {
+      font-size: 6rem;
+      margin-left: 4rem;
+      color: var(--primary-font-color);
+    }
+    > .logoName {
+      font-family: "Bruno Ace SC", serif;
+      font-size: 3rem;
+      font-weight: 600;
+    }
+  }
+}
