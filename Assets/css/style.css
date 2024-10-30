@@ -24,6 +24,9 @@ body {
   --btn-blue: #498df3;
   --btn-blue-hover: #3170ce;
 }
+p {
+  margin: 0 !important;
+}
 .header {
   height: 9rem;
   background-color: var(--sky-blue);
@@ -41,5 +44,16 @@ body {
       font-size: 3rem;
       font-weight: 600;
     }
+  }
+}
+.footer {
+  background-color: var(--light-grey);
+  height: 3rem;
+  width: 100%;
+  > .footerText {
+    font-family: "poppins", sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--primary-font-color);
   }
 }
