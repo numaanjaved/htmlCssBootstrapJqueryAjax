@@ -120,6 +120,177 @@ p {
         border: 5px solid var(--sky-blue);
       }
     }
+    > .form_input_content {
+      background-color: var(--light-sky);
+      border-radius: 20px;
+      -webkit-border-radius: 20px;
+      -moz-border-radius: 20px;
+      -ms-border-radius: 20px;
+      -o-border-radius: 20px;
+      height: 70rem;
+      min-width: calc(100% - 35rem);
+      width: calc(100% - 35rem);
+      padding: 2rem 4rem;
+      > .form_text_content_container {
+        margin-top: 2rem;
+        column-gap: 4rem;
+        > .type_input_container {
+          width: 60%;
+          height: 36rem;
+          & .text_form_labels {
+            font-family: "poppins", sans-serif;
+            font-weight: 400;
+            font-size: 2rem;
+            color: var(--primary-font-color);
+          }
+          & .error_msg {
+            font-family: "poppins", sans-serif;
+            font-weight: 500;
+            font-size: 1.5rem;
+            color: var(--error-color);
+          }
+          & .user_inputs {
+            height: 3rem;
+            width: 100%;
+            color: var(--primary-font-color);
+            outline-color: var(--sky-blue);
+            border: 2px solid var(--sky-blue);
+            font-family: "poppins", sans-serif;
+            font-weight: 400;
+            font-size: 1.4rem;
+            padding: 0.5rem 1rem;
+            margin-bottom: 1.3rem;
+            border-radius: 4px;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            -ms-border-radius: 4px;
+            -o-border-radius: 4px;
+          }
+          & .select_user_type {
+            width: 30%;
+            height: 3rem;
+            outline-color: var(--sky-blue);
+            border: 2px solid var(--sky-blue);
+            font-family: "poppins", sans-serif;
+            font-weight: 400;
+            font-size: 1.4rem;
+            padding: 0.3rem 1rem;
+            color: var(--primary-font-color);
+            margin: 1rem 0;
+            border-radius: 4px;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            -ms-border-radius: 4px;
+            -o-border-radius: 4px;
+          }
+        }
+        > .type_textArea_container {
+          height: 50rem;
+          width: calc(100% - 60%);
+          > .user_bio_input {
+            height: 20rem;
+            max-height: 20rem;
+            padding: 1rem 2rem;
+            font-family: "poppins", sans-serif;
+            font-weight: 400;
+            font-size: 1.5rem;
+            color: var(--primary-font-color);
+            font-weight: 500;
+            resize: none;
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -ms-border-radius: 5px;
+            -o-border-radius: 5px;
+            outline-color: var(--sky-blue);
+            border: 2px solid var(--sky-blue);
+          }
+          > .text_form_labels {
+            font-family: "poppins", sans-serif;
+            font-weight: 400;
+            font-size: 2rem;
+            color: var(--primary-font-color);
+          }
+          > .error_msg {
+            font-family: "poppins", sans-serif;
+            font-weight: 500;
+            font-size: 1.5rem;
+            color: var(--error-color);
+          }
+          & .limit_text {
+            font-family: "poppins", sans-serif;
+            font-weight: 500;
+            font-size: 1.5rem;
+            color: var(--primary-font-color);
+          }
+          & .limit_exceed_text {
+            font-family: "poppins", sans-serif;
+            font-weight: 500;
+            font-size: 1.5rem;
+            color: var(--error-color);
+          }
+          > .user_type_container {
+            display: none;
+            margin-top: 1rem;
+            & .admin_heading {
+              display: none;
+              font-family: "poppins", sans-serif;
+              font-weight: 400;
+              font-size: 1.7rem;
+              color: var(--primary-font-color);
+              margin-bottom: 1.5rem;
+            }
+            & .admin_attr_container {
+              display: flex;
+            }
+            & .error_msg {
+              font-family: "poppins", sans-serif;
+              font-weight: 500;
+              font-size: 1.5rem;
+              color: var(--error-color);
+              display: none;
+            }
+            & .admin_label {
+              font-family: "poppins", sans-serif;
+              font-weight: 500;
+              font-size: 1.5rem;
+              color: var(--primary-font-color);
+            }
+            & .admin_input {
+              color: var(--primary-font-color);
+              height: 2.7rem;
+              width: 100%;
+              outline-color: var(--sky-blue);
+              border: 2px solid var(--sky-blue);
+              font-family: "poppins", sans-serif;
+              font-weight: 400;
+              font-size: 1.4rem;
+              padding: 0.5rem 1rem;
+              margin-bottom: 1.3rem;
+              border-radius: 4px;
+              -webkit-border-radius: 4px;
+              -moz-border-radius: 4px;
+              -ms-border-radius: 4px;
+              -o-border-radius: 4px;
+            }
+          }
+        }
+      }
+      & .btn_container {
+        column-gap: 4rem;
+        margin-bottom: 1rem;
+        > .form_btn {
+          height: 4rem;
+          width: 20%;
+          border: none;
+          font-family: "poppins", sans-serif;
+          font-size: 1.8rem;
+          font-weight: 400;
+          color: var(--white-color);
+          box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+        }
+      }
+    }
   }
 }
 .footer {

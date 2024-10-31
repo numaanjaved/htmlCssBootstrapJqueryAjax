@@ -50,9 +50,9 @@
                             class="w-100 h-100">
                     </div>
                 </div>
-                <div class="form_input_content">
-                    <div class="form_text_content_container">
-                        <div class="type_input_container">
+                <div class="form_input_content d-flex justify-content-between align-items-center flex-column">
+                    <div class="form_text_content_container w-100 d-flex flex-row justify-content-between">
+                        <div class="type_input_container d-flex flex-column">
                             <label class="text_form_labels" for="user_Fname">First Name</label>
                             <span class="error_msg Fname_error"></span>
                             <input type="text" class="user_inputs" id="user_Fname" name="user_Fname" autocomplete="off"
@@ -77,33 +77,35 @@
                             <span class="error_msg address_error"></span>
                             <input type="text" class="user_inputs" id="user_address" name="user_address"
                                 autocomplete="off" placeholder="e.g., 123 Elm St, Springfield, IL">
-                            <div class="select_container">
+                            <div class="select_container d-flex flex-column">
                                 <label for="select_user" id="choose_user_heading" class="text_form_labels">Choose User
                                     Type</label>
                                 <span class="error_msg userType_error"></span>
-                                <select name="select_user" id="selec_user">
+                                <select name="select_user" id="selec_user" class="select_user_type">
                                     <option class="user_option" id="user_option" value="User" selected>User</option>
                                     <option class="user_option" id="admin_option" value="Admin">Admin</option>
                                 </select>
                             </div>
                         </div>
-                        <div class="type_textArea_container">
+                        <div class="type_textArea_container d-flex flex-column">
 
                             <label class="text_form_labels" for="user_address">Profile Description</label>
                             <span class="error_msg bio_error"></span>
                             <textarea name="user_bio" id="user_bio" spellcheck="false" autocomplete="off"
                                 placeholder="Write 250-300 characters" class="user_bio_input"></textarea>
-                            <div class="textAreaInfoMsgContainer">
+                            <div class="textAreaInfoMsgContainer d-flex justify-content-between align-items-center">
                                 <span class="limit_exceed_text"></span>
                                 <span class="limit_text">0/300</span>
                             </div>
-                            <div class="user_type_container">
-                                <div class="user_type_sub_container">
-                                    <div class="choose_user_container">
+                            <div class="user_type_container w-100">
+                                <div
+                                    class="user_type_sub_container w-100 d-flex justify-content-evenly align-items-start flex-column">
+                                    <div
+                                        class="choose_user_container w-100 d-flex justify-content-center align-items-start flex-column">
                                         <h3 class="admin_heading">User Name and Password for Admin
                                         </h3>
-                                        <div class="admin_attr_container">
-                                            <label class="admin_label" for="admin_name">UserName</label>
+                                        <div class="admin_attr_container flex-column w-100">
+                                            <label class="admin_label" for="admin_name">Username</label>
                                             <span class="error_msg user_admin"></span>
                                             <input type="text" id="admin_name_input" name="admin_name"
                                                 autocomplete="off" placeholder="e.g., john_smith" class="admin_input">
@@ -119,9 +121,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="btn_container">
-                        <button type="reset" class="form_btn" id="reset_btn">Reset</button>
-                        <button type="submit" class="form_btn" id="submit_btn">Submit</button>
+                    <div class="btn_container w-100 d-flex flex-row justify-content-center align-items-center">
+                        <button type="reset" id="reset_btn" class=" form_btn btn btn-primary">Reset</button>
+                        <button type="submit" id="submit_btn" class="form_btn btn btn-success">Submit</button>
                     </div>
                 </div>
             </form>
