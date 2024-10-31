@@ -8,7 +8,7 @@ let charLimitCheck = () => {
             userBio.css({ "outline": "1px solid #90c5cf", "border": "2px solid #90c5cf" });
             bioLimitExceed.html(``);
         }
-        $(`.limit_text`).html(`${userBioVal.length}/300`)
+        $(`.limit_text`).html(`${userBioVal.length}/300`);
     })
 }
 charLimitCheck();
