@@ -35,8 +35,7 @@
                 <div
                     class="form_profile_picture_container d-flex justify-content-evenly align-items-center border flex-column">
                     <div class="image_input d-flex justify-content-center align-items-center w-100 flex-column">
-                        <span id="img_info" class="bg-white text-center mb-4">Please upload and image with 1:1
-                            aspect
+                        <span id="img_info" class="bg-white text-center mb-4">Please upload and image with 1:1 aspect
                             ratio</span>
                         <label for="imageUpload"
                             class="choose_img_label d-flex justify-content-center align-items-center fw-medium">Upload
@@ -49,6 +48,76 @@
                         class="profile_picture_display_container d-flex justify-content-center align-items-center overflow-hidden">
                         <img src="./Assets/images/default_profile.png" alt="Default Profile Picture" id="form_img"
                             class="w-100 h-100">
+                    </div>
+                </div>
+                <div class="form_input_container">
+                    <div class="form_text_content_container">
+                        <div class="type_input_container">
+                            <label class="text_form_labels" for="user_Fname">First Name</label>
+                            <span class="error_msg Fname_error"></span>
+                            <input type="text" class="user_inputs" id="user_Fname" name="user_Fname" autocomplete="off"
+                                placeholder="e.g., John">
+
+                            <label class="text_form_labels" for="user_Lname">Last Name</label>
+                            <span class="error_msg Lname_error"></span>
+                            <input type="text" class="user_inputs" id="user_Lname" name="user_Lname" autocomplete="off"
+                                placeholder="e.g., Smith">
+
+                            <label class="text_form_labels" for="user_email">Email</label>
+                            <span class="error_msg email_error"></span>
+                            <input type="email" class="user_inputs" id="user_email" name="user_email" autocomplete="off"
+                                placeholder="e.g., johnsmith@gmail.com">
+
+                            <label class="text_form_labels" for="user_contact">Contact Number</label>
+                            <span class="error_msg contact_error"></span>
+                            <input type="tel" class="user_inputs" id="user_contact" name="user_contact"
+                                autocomplete="off" placeholder="e.g., 921234567890">
+
+                            <label class="text_form_labels" for="user_address">Address</label>
+                            <span class="error_msg address_error"></span>
+                            <input type="text" class="user_inputs" id="user_address" name="user_address"
+                                autocomplete="off" placeholder="e.g., 123 Elm St, Springfield, IL">
+                            <div class="select_container">
+                                <label for="select_user" id="choose_user_heading" class="text_form_labels">Choose User
+                                    Type</label>
+                                <span class="error_msg userType_error"></span>
+                                <select name="select_user" id="selec_user">
+                                    <option class="user_option" id="user_option" value="User" selected>User</option>
+                                    <option class="user_option" id="admin_option" value="Admin">Admin</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="type_textArea_container">
+
+                            <label class="text_form_labels" for="user_address">Profile Description</label>
+                            <span class="error_msg bio_error"></span>
+                            <textarea name="user_bio" id="user_bio" spellcheck="false" autocomplete="off"
+                                placeholder="Write 250-300 characters" class="user_bio_input"></textarea>
+                            <div class="textAreaInfoMsgContainer">
+                                <span class="limit_exceed_text"></span>
+                                <span class="limit_text">0/300</span>
+                            </div>
+                            <div class="user_type_container">
+                                <div class="user_type_sub_container">
+                                    <div class="choose_user_container">
+                                        <h3 class="admin_heading">User Name and Password for Admin
+                                        </h3>
+                                        <div class="admin_attr_container">
+                                            <label class="admin_label" for="admin_name">UserName</label>
+                                            <span class="error_msg user_admin"></span>
+                                            <input type="text" id="admin_name_input" name="admin_name"
+                                                autocomplete="off" placeholder="e.g., john_smith" class="admin_input">
+
+                                            <label class="admin_label" for="admin_password">Password</label>
+                                            <span class="error_msg user_admin_password"></span>
+                                            <input type="password" id="admin_password_input" name="admin_password"
+                                                autocomplete="off" placeholder="Enter password here......"
+                                                class="admin_input">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </form>
