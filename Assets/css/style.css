@@ -230,7 +230,6 @@ p {
             color: var(--error-color);
           }
           > .user_type_container {
-            display: none;
             margin-top: 1rem;
             & .admin_heading {
               display: none;
@@ -241,7 +240,7 @@ p {
               margin-bottom: 1.5rem;
             }
             & .admin_attr_container {
-              display: flex;
+              display: none;
             }
             & .error_msg {
               font-family: "poppins", sans-serif;
