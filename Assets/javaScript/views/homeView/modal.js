@@ -26,4 +26,4 @@ let modal = ([profilePic, userName, userEmail, userContactNum, userAddress, user
         // usersDataMainContainer.style.minHeight = "";
     });
 };
-modal(["./Assets/images/image5.png", "Ahmed", "AHmed@gmaill.com", "03123123124", "Chakwal", `Tech Person `, `prof001`]);    
+// modal(["./Assets/images/image5.png", "Ahmed", "AHmed@gmaill.com", "03123123124", "Chakwal", `Tech Person `, `prof001`]);    

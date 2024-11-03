@@ -37,15 +37,25 @@ figure {
   .navbar {
     height: 100%;
     width: 100%;
-    > .fa-address-card {
-      font-size: 6rem;
-      margin-left: 4rem;
-      color: var(--primary-font-color);
+    .logo {
+      > .fa-address-card {
+        font-size: 6rem;
+        margin-left: 4rem;
+        color: var(--primary-font-color);
+      }
+      > .logoName {
+        font-family: "Bruno Ace SC", serif;
+        font-size: 3rem;
+        font-weight: 600;
+      }
     }
-    > .logoName {
-      font-family: "Bruno Ace SC", serif;
-      font-size: 3rem;
-      font-weight: 600;
+    > .logout_btn {
+      height: 4rem;
+      width: 9rem;
+      font-family: "poppins", sans-serif;
+      font-weight: 500;
+      font-size: 1.5rem;
+      margin-right: 2rem;
     }
   }
 }
