@@ -1,9 +1,5 @@
 .loginPage_main_container {
-  width: 100%;
   height: 74rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   > .loginPage_sub_container {
     padding: 2rem 3rem;
     width: 40rem;
@@ -14,11 +10,6 @@
     -moz-border-radius: 20px;
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-
     > .login_heading {
       font-family: "poppins", sans-serif;
       font-weight: 600;
@@ -29,17 +20,12 @@
     > .login_form {
       height: 40rem;
       width: 90%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
       margin-top: 5rem;
       > .error_msg {
         font-family: "poppins", sans-serif;
         font-weight: 500;
         font-size: 1.5rem;
         color: var(--error-color);
-        display: none;
       }
       > .login_input {
         width: 100%;
@@ -59,9 +45,6 @@
       }
       > .password_container {
         margin: 1rem 0;
-        width: 100%;
-        display: flex;
-        flex-direction: row;
         > .login_input {
           width: calc(100% - 5rem);
           height: 4rem;
@@ -82,54 +65,20 @@
           margin-left: 5px;
           height: 4rem;
           width: 5rem;
-          background-color: var(--btn-blue);
-          border: none;
-          color: var(--white-color);
           font-family: "poppins", sans-serif;
           font-size: 2rem;
-          font-weight: 400;
-          border-radius: 0.5rem;
-          -webkit-border-radius: 0.5rem;
-          -moz-border-radius: 0.5rem;
-          -ms-border-radius: 0.5rem;
-          -o-border-radius: 0.5rem;
-          transition: all 0.2s linear;
-          -webkit-transition: all 0.2s linear;
-          -moz-transition: all 0.2s linear;
-          -ms-transition: all 0.2s linear;
-          -o-transition: all 0.2s linear;
-          &:hover {
-            cursor: pointer;
-            background-color: var(--btn-blue-hover);
-          }
         }
       }
       > .login_btn {
         margin-top: 8rem;
-        width: 100%;
         margin-left: 5px;
         height: 4rem;
-        background-color: var(--btn-blue);
-        border: none;
-        color: var(--white-color);
         font-family: "poppins", sans-serif;
         font-size: 1.4rem;
-        font-weight: 400;
-        border-radius: 0.5rem;
-        -webkit-border-radius: 0.5rem;
-        -moz-border-radius: 0.5rem;
-        -ms-border-radius: 0.5rem;
-        -o-border-radius: 0.5rem;
-        transition: all 0.2s linear;
-        -webkit-transition: all 0.2s linear;
-        -moz-transition: all 0.2s linear;
-        -ms-transition: all 0.2s linear;
-        -o-transition: all 0.2s linear;
-        &:hover {
-          cursor: pointer;
-          background-color: var(--btn-blue-hover);
-        }
       }
     }
   }
+}
+.invalid_login_Err {
+  display: none;
 }
