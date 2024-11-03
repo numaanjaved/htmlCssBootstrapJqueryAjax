@@ -18,11 +18,11 @@ let modal = ([profilePic, userName, userEmail, userContactNum, userAddress, user
     createNewElement(["p", "modal_data", modalTextContainer, `${userBio}`, { disabled: "disabled" }]);
     let btnContainer = createNewElement(["div", "modal_btn_container w-100 d-flex justify-content-center align-items-center", modalTextContainer]);
     let modalCloseBtn = createNewElement(["button", "modal_close_btn btn btn-danger", btnContainer, `Close`]);
-    modalCloseBtn.addEventListener("click", () => {
+    $(modalCloseBtn).click(() => {
         let records = $(`.individual_user_data`);
         $.each(records, (record) => { $(record).css("filter", "blur(0px)"); });
         $(modalMainContainer).css("display", "none");
         // usersDataMainContainer.style.minHeight = "";
     });
 };
-// modal(["./Assets/images/image5.png", "Ahmed", "AHmed@gmaill.com", "03123123124", "Chakwal", `Tech Person `, `prof001`]);
+modal(["./Assets/images/image5.png", "Ahmed", "AHmed@gmaill.com", "03123123124", "Chakwal", `Tech Person `, `prof001`]);
