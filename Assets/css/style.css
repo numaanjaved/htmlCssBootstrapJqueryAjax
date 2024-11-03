@@ -26,7 +26,8 @@ body {
 }
 p,
 h1,
-h4 {
+h4,
+figure {
   margin: 0 !important;
 }
 .header {
@@ -340,6 +341,47 @@ h4 {
       background-color: var(--primary-font-color);
       padding-bottom: 0.1rem;
       color: var(--white-color);
+      & .text_record {
+        width: 70%;
+        & .user_profile_data {
+          border-right: 2px solid var(--white-color);
+          border-bottom: 2px solid var(--white-color);
+          color: var(--white-color);
+          font-family: "poppins", sans-serif;
+          font-size: 1.5rem;
+          text-align: center;
+          padding: 1rem 0;
+          max-height: 4rem;
+          height: 4rem;
+          text-align: center;
+        }
+        > .user_profile_data:not(.user_profile_data:first-child) {
+          width: 30%;
+        }
+        > .user_profile_data:first-child {
+          width: 10%;
+          > .profile_img_container {
+            margin-top: 0.1rem;
+            height: 3.6rem;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background-color: var(--light-sky);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            -o-border-radius: 50%;
+            > .user_profile_img {
+              max-height: 4rem;
+              height: 4rem;
+              aspect-ratio: 1;
+            }
+          }
+        }
+      }
     }
   }
 }
