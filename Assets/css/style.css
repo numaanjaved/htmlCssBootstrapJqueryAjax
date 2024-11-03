@@ -383,6 +383,19 @@ figure {
         }
       }
     }
+    & .profile_btns_container {
+      width: 30%;
+      border-bottom: 2px solid var(--white-color);
+      max-height: 4rem;
+      height: 4rem;
+      > .Ops_Buttons {
+        font-size: 1.4rem;
+        height: 3rem;
+        width: 8rem;
+        color: var(--white-color);
+        font-family: "poppins", sans-serif;
+      }
+    }
   }
 }
 .footer {

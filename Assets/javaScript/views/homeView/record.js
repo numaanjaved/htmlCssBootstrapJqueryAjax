@@ -10,8 +10,8 @@ let recordRow = (profilePic, userId, userName, userType) => {
     createNewElement(["p", "user_profile_data", userTextRecordContainer, `${userId}`, { id: "user_id" }]);
     createNewElement(["p", "user_profile_data", userTextRecordContainer, `${userName}`, { id: "user_fullName_data" }]);
     createNewElement(["p", "user_profile_data", userTextRecordContainer, `${userType}`, { id: "user_type_data" }]);
-    let ProfileBtnOpsContainer = createNewElement(["div", "profile_btns_container", userDataContainer]);
+    let ProfileBtnOpsContainer = createNewElement(["div", "profile_btns_container d-flex justify-content-evenly flex-row align-items-center", userDataContainer]);
     readUpdateDelete(userDataContainer, ProfileBtnOpsContainer, userId);
 };
 
-recordRow("./Assets/images/image1.png", "123", "AHmed", "Admin")
+recordRow("./Assets/images/image1.png", "123", "AHmed", "Admin");
