@@ -409,3 +409,32 @@ figure {
     color: var(--primary-font-color);
   }
 }
+
+/* error message */
+.bio_error {
+  display: none;
+}
+.Fname_error {
+  display: none;
+}
+.Lname_error {
+  display: none;
+}
+.address_error {
+  display: none;
+}
+.email_error {
+  display: none;
+}
+.contact_error {
+  display: none;
+}
+.user_admin {
+  display: block;
+}
+.user_admin_password {
+  display: block;
+}
+.userType_error {
+  display: block;
+}
