@@ -24,7 +24,9 @@ body {
   --btn-blue: #498df3;
   --btn-blue-hover: #3170ce;
 }
-p {
+p,
+h1,
+h4 {
   margin: 0 !important;
 }
 .header {
@@ -289,6 +291,55 @@ p {
           box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
         }
       }
+    }
+  }
+}
+.user_data_section {
+  padding: 4rem 12rem;
+  & .user_data_section_heading {
+    background-color: var(--sky-blue);
+    color: var(--primary-font-color);
+    font-family: "poppins", sans-serif;
+    font-size: 4rem;
+  }
+  & .user_data_display_container {
+    background-color: var(--primary-font-color);
+    & .data_headings_container {
+      background-color: var(--light-sky);
+      & .text_container {
+        width: 70%;
+        > .data_heading {
+          color: var(--primary-font-color);
+          font-family: "poppins", sans-serif;
+          font-size: 1.7rem;
+          text-align: center;
+          padding: 1rem 0;
+          border-right: 2px solid var(--primary-font-color);
+        }
+        > .data_heading:not(.data_heading:first-child) {
+          width: 30%;
+        }
+        > .data_heading:first-child {
+          width: 10%;
+        }
+      }
+      & .actions_container {
+        width: 30%;
+        > .data_heading {
+          color: var(--primary-font-color);
+          font-family: "poppins", sans-serif;
+          font-size: 1.7rem;
+          text-align: center;
+          padding: 1rem 0;
+        }
+      }
+    }
+    & .individual_user_data_container {
+      top: 0;
+      left: 0;
+      background-color: var(--primary-font-color);
+      padding-bottom: 0.1rem;
+      color: var(--white-color);
     }
   }
 }
