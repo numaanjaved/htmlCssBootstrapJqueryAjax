@@ -1,14 +1,22 @@
 import { userFirstName, userLastName, userEmail, userContactNumber, userAddress, userBio } from "../views/homeView/elementReferences.js";
+import { nullCheck } from "../views/homeView/form/errorMessages.js";
 import { User } from "../models/User.js";
+let attributes = [
+    { attr: userFirstName },
+    { attr: userLastName },
+    { attr: userEmail },
+    { attr: userContactNumber },
+    { attr: userAddress },
+    { attr: userBio },
+]
 export let formValidation = () => {
     let validationCheck = true;
     let newUser = new User();
-    if (!newUser.isNull(userFirstName)) { validationCheck = false; }
-    if (!newUser.isNull(userLastName)) { validationCheck = false; }
-    if (!newUser.isNull(userEmail)) { validationCheck = false; }
-    if (!newUser.isNull(userContactNumber)) { validationCheck = false; }
-    if (!newUser.isNull(userAddress)) { validationCheck = false; }
-    if (!newUser.isNull(userBio)) { validationCheck = false; }
+    $.each(attributes, (index, value) => {
+        if (!newUser.isNull(value.attr)) {
+            validationCheck = false; nullCheck(value.attr, validationCheck);
+        } else { validationCheck = true; nullCheck(value.attr, validationCheck); }
+    });
 
     if (validationCheck) {
         console.log(`Validation Successful`);
