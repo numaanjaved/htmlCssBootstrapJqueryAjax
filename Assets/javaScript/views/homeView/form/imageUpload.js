@@ -1,3 +1,4 @@
+export let formImg = $("#form_img")
 $(".choose_img_label").on("mouseenter", () => {
     $("#img_info").css("opacity", "1");
 }).on("mouseleave", () => {
@@ -11,7 +12,7 @@ $("#imageUpload").on("change", (event) => {
         let reader = new FileReader();
         reader.onload = (e) => {
             let imageDataUrl = e.target.result;
-            $("#form_img").attr("src", imageDataUrl).css("display", "block");
+            $(formImg).attr("src", imageDataUrl).css("display", "block");
         }
         reader.readAsDataURL(file);
     }

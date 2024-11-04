@@ -1,17 +1,17 @@
-import { FnameErr, LnameErr, emailErr, contactErr, addressErr, bioErr } from "../elementReferences.js";
-
-let errorMsg = (statusMsg) => {
-    let msg = errorContainers[$(statusMsg).attr("name")];
-    $(msg).css("display", "block");
-    $(msg).html(`Enter Value in the field`);
-
-}
-let successMsg = (statusMsg) => {
-    let msg = errorContainers[$(statusMsg).attr("name")];
-    $(msg).css("display", "none");
-    $(msg).html(``);
-}
-
+import { FnameErr, LnameErr, emailErr, contactErr, addressErr, bioErr, image_error_msg } from "../elementReferences.js";
+import { formImg } from "./imageUpload.js";
+let errorMsg = (attribute, statusMsg) => {
+    let msg = errorContainers[$(attribute).attr("name")];
+    $(msg).css("display", "block").html(`${statusMsg.errorCode}: ${statusMsg.errorMsg}`);
+};
+let successMsg = (attr) => {
+    let msg = errorContainers[$(attr).attr("name")];
+    $(msg).css("display", "none").html(``);
+};
+let errorsArray = [
+    { "errorCode": "isNull", "errorMsg": "Please Enter Data in the field" },
+    { "errorCode": "noPicture", "errorMsg": "Please Upload Profile Picture" },
+];
 let errorContainers = {
     user_Fname: FnameErr,
     user_Lname: LnameErr,
@@ -19,5 +19,7 @@ let errorContainers = {
     user_contact: contactErr,
     user_address: addressErr,
     user_bio: bioErr,
-}
-export let nullCheck = (attr, check) => check ? successMsg(attr) : errorMsg(attr);
+    profile_img: image_error_msg
+};
+export let nullCheck = (attr, check) => check ? successMsg(attr) : errorMsg(attr, errorsArray[0]);
+export let profileImgCheck = (attr, check) => check ? successMsg(attr) : errorMsg(attr, errorsArray[1]);

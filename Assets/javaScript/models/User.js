@@ -8,8 +8,9 @@ export class User {
     contactNum;
     address;
     bio;
+    pic;
     validation;
-    create([fName, lName, email, contactNum, address, bio]) {
+    create([fName, lName, email, contactNum, address, bio, profilePic]) {
         User.id += 1;
         this.setUserId(User.id);
         this.setFName(fName);
@@ -18,11 +19,16 @@ export class User {
         this.setContactNum(contactNum);
         this.setAddress(address);
         this.setBio(bio);
+        this.setProfilePic(profilePic);
     }
 
     isNull(attr) {
         this.validation = new Validation();
         return this.validation.isNull(attr) ? true : false;
+    }
+    profilePicValidation(img) {
+        this.validation = new Validation();
+        return this.validation.profilePicVal(img) ? true : false;
     }
     setUserId(userId) {
         this.userId = `prof00${userId}`;
@@ -65,5 +71,11 @@ export class User {
     }
     getBio() {
         return this.bio;
+    }
+    setProfilePic(picture) {
+        this.pic = picture;
+    }
+    getProfilePic() {
+        return this.pic;
     }
 };
