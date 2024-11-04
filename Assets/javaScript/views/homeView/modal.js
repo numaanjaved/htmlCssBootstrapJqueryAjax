@@ -19,7 +19,6 @@ let modal = ([profilePic, userName, userEmail, userContactNum, userAddress, user
     let btnContainer = createNewElement(["div", "modal_btn_container w-100 d-flex justify-content-center align-items-center", modalTextContainer]);
     let modalCloseBtn = createNewElement(["button", "modal_close_btn btn btn-danger", btnContainer, `Close`]);
     $(modalCloseBtn).click(() => {
-        console.log(`hi`)
         let records = $(`.individual_user_data`);
         $.each(records, (record) => { $(record).css("filter", "blur(0px)"); });
         $(modalMainContainer).css("display", "none");
