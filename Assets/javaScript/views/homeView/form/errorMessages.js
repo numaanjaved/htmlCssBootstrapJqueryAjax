@@ -25,4 +25,5 @@ let errorContainers = {
 };
 export let nullCheck = (attr, check) => check ? successMsg(attr) : errorMsg(attr, errorsArray[0]);
 export let regexCheck = (attr, check) => check ? successMsg(attr) : errorMsg(attr, errorsArray[1]);
+export let lenCheck = (attr, check) => check ? successMsg(attr) : errorMsg(attr, errorsArray[2]);
 export let profileImgCheck = (attr, check) => check ? successMsg(attr) : errorMsg(attr, errorsArray[3]);

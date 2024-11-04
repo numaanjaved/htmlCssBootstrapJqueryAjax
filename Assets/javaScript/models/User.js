@@ -30,6 +30,10 @@ export class User {
         this.validation = new Validation();
         return this.validation.matchRegex(attr, regex) ? true : false;
     }
+    checkLength(attr, len) {
+        this.validation = new Validation();
+        return this.validation.checkLength(attr, len) ? true : false;
+    }
     profilePicValidation(img) {
         this.validation = new Validation();
         return this.validation.profilePicVal(img) ? true : false;

@@ -16,6 +16,13 @@ export class Validation {
         if (!(value == value.match(this.getRegex()))) { regexCheck = false; }
         return regexCheck;
     }
+    checkLength(attr, len) {
+        let lengthCheck = true;
+        this.setAttribute(attr);
+        this.setLength(len);
+        if ($(this.getAttribute()).val().length > this.getLength()) { lengthCheck = false; }
+        return lengthCheck;
+    }
     profilePicVal(img) {
         let imgCheck = true;
         let imgSrc = $(img).attr("src");

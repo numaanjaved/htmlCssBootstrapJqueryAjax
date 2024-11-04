@@ -1,6 +1,6 @@
 import { userFirstName, userLastName, userEmail, userContactNumber, userAddress, userBio } from "../views/homeView/elementReferences.js";
 import { formImg } from "../views/homeView/form/imageUpload.js";
-import { nullCheck, profileImgCheck, regexCheck, } from "../views/homeView/form/errorMessages.js";
+import { lenCheck, nullCheck, profileImgCheck, regexCheck, } from "../views/homeView/form/errorMessages.js";
 import { User } from "../models/User.js";
 let attributes = [
     { attr: userFirstName, regex: /^[a-zA-Z\s]*$/, length: 30 },
@@ -14,20 +14,26 @@ export let formValidation = () => {
     let validationCheck = true;
     let newUser = new User();
     $.each(attributes, (index, value) => {
+        let isValid = true;
         if (!newUser.isNull(value.attr)) {
-            validationCheck = false; nullCheck(value.attr, false);
+            isValid = false;
+            nullCheck(value.attr, false);
         } else {
             nullCheck(value.attr, true);
             if (!newUser.matchRegex(value.attr, value.regex)) {
-                validationCheck = false;
+                isValid = false;
                 regexCheck(value.attr, false);
-            } else { regexCheck(value.attr, true); }
+            } else {
+                regexCheck(value.attr, true);
+                if (!newUser.checkLength(value.attr, value.length)) {
+                    isValid = false;
+                    lenCheck(value.attr, false);
+                } else { lenCheck(value.attr, true) }
+            }
         }
+        if (!isValid) { validationCheck = false; }
     });
-    if (!newUser.profilePicValidation(formImg)) {
-        validationCheck = false;
-        profileImgCheck(formImg);
-    }
+    if (!newUser.profilePicValidation(formImg)) { validationCheck = false; profileImgCheck(formImg); }
     if (validationCheck) {
         console.log(`Validation Successful`);
     } else {
