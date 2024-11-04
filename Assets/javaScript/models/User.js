@@ -1,4 +1,5 @@
-class User {
+import { Validation } from "./Validation.js";
+export class User {
     static id = 0;
     userId;
     firstName;
@@ -7,6 +8,7 @@ class User {
     contactNum;
     address;
     bio;
+    validation;
     create([fName, lName, email, contactNum, address, bio]) {
         User.id += 1;
         this.setUserId(User.id);
@@ -16,6 +18,11 @@ class User {
         this.setContactNum(contactNum);
         this.setAddress(address);
         this.setBio(bio);
+    }
+
+    isNull(attr) {
+        this.validation = new Validation();
+        return this.validation.isNull(attr) ? true : false;
     }
     setUserId(userId) {
         this.userId = `prof00${userId}`;

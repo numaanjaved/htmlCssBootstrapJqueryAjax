@@ -1,3 +1,4 @@
+import { userBio } from "../elementReferences.js";
 let charLimitCheck = () => {
     userBio.on("input", (e) => {
         let userBioVal = e.target.value;
