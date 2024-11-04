@@ -1,22 +1,28 @@
 import { userFirstName, userLastName, userEmail, userContactNumber, userAddress, userBio } from "../views/homeView/elementReferences.js";
 import { formImg } from "../views/homeView/form/imageUpload.js";
-import { nullCheck, profileImgCheck, } from "../views/homeView/form/errorMessages.js";
+import { nullCheck, profileImgCheck, regexCheck, } from "../views/homeView/form/errorMessages.js";
 import { User } from "../models/User.js";
 let attributes = [
-    { attr: userFirstName },
-    { attr: userLastName },
-    { attr: userEmail },
-    { attr: userContactNumber },
-    { attr: userAddress },
-    { attr: userBio }
-]
+    { attr: userFirstName, regex: /^[a-zA-Z\s]*$/, length: 30 },
+    { attr: userLastName, regex: /^[a-zA-Z\s]*$/, length: 30 },
+    { attr: userEmail, regex: /^[a-zA-Z0-9]+(?:[._][a-zA-Z0-9]+)*@[A-Za-z]+\.[A-Za-z]{2,}$/, length: 100 },
+    { attr: userContactNumber, regex: /^[0-9]{2,}[0-9]{7,}$/, length: 20 },
+    { attr: userAddress, regex: /^[a-zA-Z0-9\s,.'-]*$/, length: 150 },
+    { attr: userBio, regex: /^[a-zA-Z0-9\s,.'-]*$/, length: 300 }
+];
 export let formValidation = () => {
     let validationCheck = true;
     let newUser = new User();
     $.each(attributes, (index, value) => {
         if (!newUser.isNull(value.attr)) {
-            validationCheck = false; nullCheck(value.attr, validationCheck);
-        } else { validationCheck = true; nullCheck(value.attr, validationCheck); }
+            validationCheck = false; nullCheck(value.attr, false);
+        } else {
+            nullCheck(value.attr, true);
+            if (!newUser.matchRegex(value.attr, value.regex)) {
+                validationCheck = false;
+                regexCheck(value.attr, false);
+            } else { regexCheck(value.attr, true); }
+        }
     });
     if (!newUser.profilePicValidation(formImg)) {
         validationCheck = false;

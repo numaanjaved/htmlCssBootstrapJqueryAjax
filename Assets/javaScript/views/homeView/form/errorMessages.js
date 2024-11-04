@@ -10,6 +10,8 @@ let successMsg = (attr) => {
 };
 let errorsArray = [
     { "errorCode": "isNull", "errorMsg": "Please Enter Data in the field" },
+    { "errorCode": "matchFormat", "errorMsg": "Please Match The Requested Format" },
+    { "errorCode": "limitExceed", "errorMsg": "Character Limit Exceeded" },
     { "errorCode": "noPicture", "errorMsg": "Please Upload Profile Picture" },
 ];
 let errorContainers = {
@@ -22,4 +24,5 @@ let errorContainers = {
     profile_img: image_error_msg
 };
 export let nullCheck = (attr, check) => check ? successMsg(attr) : errorMsg(attr, errorsArray[0]);
-export let profileImgCheck = (attr, check) => check ? successMsg(attr) : errorMsg(attr, errorsArray[1]);
+export let regexCheck = (attr, check) => check ? successMsg(attr) : errorMsg(attr, errorsArray[1]);
+export let profileImgCheck = (attr, check) => check ? successMsg(attr) : errorMsg(attr, errorsArray[3]);

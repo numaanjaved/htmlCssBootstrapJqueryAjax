@@ -26,6 +26,10 @@ export class User {
         this.validation = new Validation();
         return this.validation.isNull(attr) ? true : false;
     }
+    matchRegex(attr, regex) {
+        this.validation = new Validation();
+        return this.validation.matchRegex(attr, regex) ? true : false;
+    }
     profilePicValidation(img) {
         this.validation = new Validation();
         return this.validation.profilePicVal(img) ? true : false;

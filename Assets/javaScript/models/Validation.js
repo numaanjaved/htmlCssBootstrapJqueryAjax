@@ -4,6 +4,12 @@ export class Validation {
         if ($(attr).val() == "" || $(attr).val() == null) { nullCheck = false; }
         return nullCheck;
     }
+    matchRegex(attr, regex) {
+        let regexCheck = true;
+        let value = $(attr).val();
+        if (!(value == value.match(regex))) { regexCheck = false; }
+        return regexCheck;
+    }
     profilePicVal(img) {
         let imgCheck = true;
         let imgSrc = $(img).attr("src");
