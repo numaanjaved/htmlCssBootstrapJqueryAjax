@@ -40,6 +40,10 @@ export class User {
         this.validator = new Validation();
         return this.validator.profilePicVal(img) ? true : false;
     }
+    createUser(dataArr) {
+        this.validator = new Validation();
+        this.validator.createUser(dataArr);
+    }
     setUserId(userId) {
         this.userId = `prof00${userId}`;
     }

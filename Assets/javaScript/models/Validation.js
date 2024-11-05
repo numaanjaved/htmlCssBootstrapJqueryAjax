@@ -1,3 +1,6 @@
+import { User } from "./User.js";
+import { Admin } from "./Admin.js";
+import { usersDataArray } from "../controllers/formValidation.js";
 export class Validation {
     attribute;
     regex;
@@ -28,6 +31,16 @@ export class Validation {
         let imgSrc = $(img).attr("src");
         if (imgSrc.includes("default_profile.png") || imgSrc == "") { imgCheck = false; }
         return imgCheck;
+    }
+    createUser(dataArr) {
+        let newUser = new User();
+        newUser.create(dataArr);
+        usersDataArray.push(newUser);
+    }
+    createAdmin(dataArr) {
+        let newAdmin = new Admin();
+        newAdmin.create(dataArr);
+        usersDataArray.push(newAdmin);
     }
     setAttribute(att) {
         this.attribute = att;

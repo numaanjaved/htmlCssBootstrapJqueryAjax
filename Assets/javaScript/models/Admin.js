@@ -1,5 +1,5 @@
+import { Validation } from "./Validation.js";
 import { User } from "./User.js";
-
 export class Admin extends User {
     userType;
     adminName;
@@ -10,6 +10,10 @@ export class Admin extends User {
         this.setAdminName(username);
         this.setAdminPassword(adminPass);
         this.setUserType("Admin");
+    }
+    createAdmin(dataArr) {
+        this.validator = new Validation();
+        this.validator.createAdmin(dataArr);
     }
     setAdminName(username) {
         this.adminName = username;

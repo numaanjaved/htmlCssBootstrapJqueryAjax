@@ -15,24 +15,25 @@ let attributes = [
 ];
 export let formValidation = () => {
     let validationCheck = true;
-    let newUser = new User();
+    let userObj = new User();
+    let adminObj = new Admin();
     if ($(selectUser).val() === "Admin") {
         attributes.push({ attr: adminUsername, regex: /^[a-zA-Z0-9_]*$/, length: 30 },
             { attr: adminPassword, regex: /^[a-zA-Z0-9_#@.&$]*$/, length: 30 });
     }
     $.each(attributes, (index, value) => {
         let isValid = true;
-        if (!newUser.isNull(value.attr)) {
+        if (!userObj.isNull(value.attr)) {
             isValid = false;
             nullCheck(value.attr, false);
         } else {
             nullCheck(value.attr, true);
-            if (!newUser.matchRegex(value.attr, value.regex)) {
+            if (!userObj.matchRegex(value.attr, value.regex)) {
                 isValid = false;
                 regexCheck(value.attr, false);
             } else {
                 regexCheck(value.attr, true);
-                if (!newUser.checkLength(value.attr, value.length)) {
+                if (!userObj.checkLength(value.attr, value.length)) {
                     isValid = false;
                     lenCheck(value.attr, false);
                 } else { lenCheck(value.attr, true) }
@@ -40,22 +41,19 @@ export let formValidation = () => {
         }
         if (!isValid) { validationCheck = false; }
     });
-    if (!newUser.profilePicValidation(formImg)) { validationCheck = false; profileImgCheck(formImg); }
+    if (!userObj.profilePicValidation(formImg)) { validationCheck = false; profileImgCheck(formImg); }
     if (validationCheck) {
         let formData = [$(userFirstName).val(), $(userLastName).val(), $(userEmail).val(), $(userContactNumber).val(), $(userAddress).val(), $(userBio).val(), $(formImg).attr("src")];
         if ($(selectUser).val() === "Admin") {
-            let newAdmin = new Admin()
             formData.push($(adminUsername).val(), $(adminPassword).val());
-            newAdmin.create(formData);
-            usersDataArray.push(newAdmin);
+            adminObj.create(formData);
+            usersDataArray.push(adminObj);
         } else {
-            let userTypeObj = new User();
-            userTypeObj.create(formData);
-            console.log(userTypeObj);
-            usersDataArray.push(userTypeObj);
+            userObj.createUser(formData);
         }
         console.log(`Validation Successful`)
     } else {
         console.log(`ReEnter Values`);
     }
+    console.log(usersDataArray)
 };
