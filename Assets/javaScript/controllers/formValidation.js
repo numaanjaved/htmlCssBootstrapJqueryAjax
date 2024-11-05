@@ -37,7 +37,11 @@ export let formValidation = () => {
     });
     if (!newUser.profilePicValidation(formImg)) { validationCheck = false; profileImgCheck(formImg); }
     if (validationCheck) {
+        let formData = [$(userFirstName).val(), $(userLastName).val(), $(userEmail).val(), $(userContactNumber).val(), $(userAddress).val(), $(userBio).val(), $(formImg).attr("src")]
+        newUser.create(formData);
+        usersDataArray.push(formData);
         console.log(`Validation Successful`);
+        console.log(newUser)
     } else {
         console.log(`ReEnter Values`);
     }

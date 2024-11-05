@@ -29,10 +29,4 @@ export class Admin extends User {
     getUserType() {
         return this.userType;
     }
-}
-
-
-
-let newUse2 = new Admin();
-newUse2.create(["Ahmed", "Kahout", "ahmedkkkk@gmail.com", "0333591891", "Hospital Road CHakwal", "I'm web developer", "./Assets/images/image1.png", "ahmed_admin", "ahmed123"]);
-console.log(newUse2)
+};

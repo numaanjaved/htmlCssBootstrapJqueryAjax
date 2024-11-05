@@ -95,8 +95,3 @@ export class User {
         return this.userType;
     }
 };
-
-
-let newUser = new User();
-newUser.create(["Ahmed", "Tahiri", "ahmed@gmail.com", "0333591891", "Hospital Road CHakwal", "I'm web developer", "./Assets/images/image1.png"]);
-console.log(newUser)
