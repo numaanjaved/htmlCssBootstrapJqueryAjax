@@ -1,4 +1,4 @@
-import { FnameErr, LnameErr, emailErr, contactErr, addressErr, bioErr, image_error_msg } from "../elementReferences.js";
+import { FnameErr, LnameErr, emailErr, contactErr, addressErr, bioErr, image_error_msg, userNameErr, userPassErr } from "../elementReferences.js";
 import { formImg } from "./imageUpload.js";
 let errorMsg = (attribute, statusMsg) => {
     let msg = errorContainers[$(attribute).attr("name")];
@@ -21,7 +21,9 @@ let errorContainers = {
     user_contact: contactErr,
     user_address: addressErr,
     user_bio: bioErr,
-    profile_img: image_error_msg
+    profile_img: image_error_msg,
+    admin_name: userNameErr,
+    admin_password: userPassErr
 };
 export let nullCheck = (attr, check) => check ? successMsg(attr) : errorMsg(attr, errorsArray[0]);
 export let regexCheck = (attr, check) => check ? successMsg(attr) : errorMsg(attr, errorsArray[1]);

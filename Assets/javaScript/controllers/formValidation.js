@@ -1,4 +1,4 @@
-import { userFirstName, userLastName, userEmail, userContactNumber, userAddress, userBio } from "../views/homeView/elementReferences.js";
+import { userFirstName, userLastName, userEmail, userContactNumber, userAddress, userBio, selectUser, adminUsername, adminPassword } from "../views/homeView/elementReferences.js";
 import { formImg } from "../views/homeView/form/imageUpload.js";
 import { lenCheck, nullCheck, profileImgCheck, regexCheck, } from "../views/homeView/form/errorMessages.js";
 import { User } from "../models/User.js";
@@ -15,6 +15,10 @@ let attributes = [
 export let formValidation = () => {
     let validationCheck = true;
     let newUser = new User();
+    if ($(selectUser).val() === "Admin") {
+        attributes.push({ attr: adminUsername, regex: /^[a-zA-Z0-9_]*$/, length: 30 },
+            { attr: adminPassword, regex: /^[a-zA-Z0-9_#@.&$]*$/, length: 30 });
+    }
     $.each(attributes, (index, value) => {
         let isValid = true;
         if (!newUser.isNull(value.attr)) {
@@ -41,7 +45,8 @@ export let formValidation = () => {
         newUser.create(formData);
         usersDataArray.push(formData);
         console.log(`Validation Successful`);
-        console.log(newUser)
+        console.log(newUser);
+        console.log($(selectUser).val())
     } else {
         console.log(`ReEnter Values`);
     }

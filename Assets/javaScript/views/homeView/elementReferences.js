@@ -6,6 +6,9 @@ export let userAddress = $("#user_address");
 export let userBio = $("#user_bio");
 export let bioLimitText = $(".limit_text");
 export let bioLimitExceed = $(".limit_exceed_text");
+export let selectUser = $("#select_user");
+export let adminUsername = $("#admin_name_input");
+export let adminPassword = $("#admin_password_input");
 // Error messages
 export let FnameErr = $(".Fname_error");
 export let LnameErr = $(".Lname_error");
