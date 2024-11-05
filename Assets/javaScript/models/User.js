@@ -1,6 +1,7 @@
 import { Validation } from "./Validation.js";
 export class User {
     static id = 0;
+    userType;
     userId;
     firstName;
     lastName;
@@ -9,9 +10,10 @@ export class User {
     address;
     bio;
     pic;
-    validation;
+    validator;
     create([fName, lName, email, contactNum, address, bio, profilePic]) {
         User.id += 1;
+        this.setUserType("User")
         this.setUserId(User.id);
         this.setFName(fName);
         this.setLName(lName);
@@ -23,20 +25,20 @@ export class User {
     }
 
     isNull(attr) {
-        this.validation = new Validation();
-        return this.validation.isNull(attr) ? true : false;
+        this.validator = new Validation();
+        return this.validator.isNull(attr) ? true : false;
     }
     matchRegex(attr, regex) {
-        this.validation = new Validation();
-        return this.validation.matchRegex(attr, regex) ? true : false;
+        this.validator = new Validation();
+        return this.validator.matchRegex(attr, regex) ? true : false;
     }
     checkLength(attr, len) {
-        this.validation = new Validation();
-        return this.validation.checkLength(attr, len) ? true : false;
+        this.validator = new Validation();
+        return this.validator.checkLength(attr, len) ? true : false;
     }
     profilePicValidation(img) {
-        this.validation = new Validation();
-        return this.validation.profilePicVal(img) ? true : false;
+        this.validator = new Validation();
+        return this.validator.profilePicVal(img) ? true : false;
     }
     setUserId(userId) {
         this.userId = `prof00${userId}`;
@@ -86,4 +88,15 @@ export class User {
     getProfilePic() {
         return this.pic;
     }
+    setUserType(type) {
+        this.userType = type;
+    }
+    getUserType() {
+        return this.userType;
+    }
 };
+
+
+let newUser = new User();
+newUser.create(["Ahmed", "Tahiri", "ahmed@gmail.com", "0333591891", "Hospital Road CHakwal", "I'm web developer", "./Assets/images/image1.png"]);
+console.log(newUser)

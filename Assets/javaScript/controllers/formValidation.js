@@ -2,6 +2,8 @@ import { userFirstName, userLastName, userEmail, userContactNumber, userAddress,
 import { formImg } from "../views/homeView/form/imageUpload.js";
 import { lenCheck, nullCheck, profileImgCheck, regexCheck, } from "../views/homeView/form/errorMessages.js";
 import { User } from "../models/User.js";
+export let selectedIndex = null;
+export let usersDataArray = [];
 let attributes = [
     { attr: userFirstName, regex: /^[a-zA-Z\s]*$/, length: 30 },
     { attr: userLastName, regex: /^[a-zA-Z\s]*$/, length: 30 },
