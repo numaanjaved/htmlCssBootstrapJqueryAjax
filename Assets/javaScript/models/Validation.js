@@ -1,6 +1,7 @@
 import { User } from "./User.js";
 import { Admin } from "./Admin.js";
-import { usersDataArray } from "../controllers/formValidation.js";
+import { userAddress, usersDataArray } from "../views/homeView/elementReferences.js";
+import { usersDataMainContainer } from "../views/homeView/record.js";
 export class Validation {
     attribute;
     regex;
@@ -35,12 +36,20 @@ export class Validation {
     createUser(dataArr) {
         let newUser = new User();
         newUser.create(dataArr);
-        usersDataArray.push(newUser);
+        let tempArr = [];
+        let storedData = localStorage.getItem('Data');
+        if (storedData) { tempArr = JSON.parse(storedData); }
+        tempArr.push(newUser);
+        localStorage.setItem('Data', JSON.stringify(tempArr));
     }
     createAdmin(dataArr) {
         let newAdmin = new Admin();
         newAdmin.create(dataArr);
-        usersDataArray.push(newAdmin);
+        let tempArr = [];
+        let storedData = localStorage.getItem('Data');
+        if (storedData) { tempArr = JSON.parse(storedData); }
+        tempArr.push(newAdmin);
+        localStorage.setItem('Data', JSON.stringify(tempArr));
     }
     setAttribute(att) {
         this.attribute = att;

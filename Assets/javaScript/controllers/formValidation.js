@@ -1,10 +1,11 @@
-import { userFirstName, userLastName, userEmail, userContactNumber, userAddress, userBio, selectUser, adminUsername, adminPassword } from "../views/homeView/elementReferences.js";
+import { userFirstName, userLastName, userEmail, userContactNumber, userAddress, userBio, selectUser, adminUsername, adminPassword, usersDataArray } from "../views/homeView/elementReferences.js";
 import { formImg } from "../views/homeView/form/imageUpload.js";
 import { lenCheck, nullCheck, profileImgCheck, regexCheck, } from "../views/homeView/form/errorMessages.js";
 import { User } from "../models/User.js";
 import { Admin } from "../models/Admin.js"
+import { refreshRecords } from "../views/homeView/refreshRecords.js";
 export let selectedIndex = null;
-export let usersDataArray = [];
+
 let attributes = [
     { attr: userFirstName, regex: /^[a-zA-Z\s]*$/, length: 30 },
     { attr: userLastName, regex: /^[a-zA-Z\s]*$/, length: 30 },
@@ -46,14 +47,16 @@ export let formValidation = () => {
         let formData = [$(userFirstName).val(), $(userLastName).val(), $(userEmail).val(), $(userContactNumber).val(), $(userAddress).val(), $(userBio).val(), $(formImg).attr("src")];
         if ($(selectUser).val() === "Admin") {
             formData.push($(adminUsername).val(), $(adminPassword).val());
-            adminObj.create(formData);
-            usersDataArray.push(adminObj);
+            adminObj.createAdmin(formData);
+            console.log(`Admin Called`)
         } else {
             userObj.createUser(formData);
         }
         console.log(`Validation Successful`)
+        refreshRecords();
     } else {
         console.log(`ReEnter Values`);
     }
     console.log(usersDataArray)
 };
+refreshRecords();

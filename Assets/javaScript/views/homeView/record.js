@@ -1,6 +1,6 @@
 import { readUpdateDelete } from "./recordButtons.js";
 export let usersDataMainContainer = $(".individual_user_data_container")[0];
-let recordRow = ([profilePic, userId, userName, userType]) => {
+export let recordRow = ([profilePic, userId, userName, userType]) => {
     let userDataContainer = createNewElement(["div", "individual_user_data w-100 d-flex justify-content-between align-items-center", usersDataMainContainer]);
     let userTextRecordContainer = createNewElement(["div", "text_record d-flex justify-content-evenly align-items-center", userDataContainer]);
     let userProfilePicContainer = createNewElement(["div", "user_profile_data d-flex justify-content-center align-items-center", userTextRecordContainer]);
@@ -13,5 +13,3 @@ let recordRow = ([profilePic, userId, userName, userType]) => {
     let ProfileBtnOpsContainer = createNewElement(["div", "profile_btns_container d-flex justify-content-evenly flex-row align-items-center", userDataContainer]);
     readUpdateDelete(userDataContainer, ProfileBtnOpsContainer, userId);
 };
-
-recordRow(["./Assets/images/image1.png", "123", "AHmed", "Admin"]);

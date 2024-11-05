@@ -1,3 +1,4 @@
+import { usersDataArray } from "../views/homeView/elementReferences.js";
 import { Validation } from "./Validation.js";
 export class User {
     static id = 0;
@@ -11,6 +12,21 @@ export class User {
     bio;
     pic;
     validator;
+
+    constructor() {
+        let LS = JSON.parse(localStorage.getItem('Data'));
+        if (LS !== null) {
+            let largest = 0;
+            let trimId;
+            LS.forEach((record) => {
+                let id = record.userId;
+                trimId = id.substring(6);
+                let toNum = parseInt(trimId);
+                if (toNum > largest) { largest = toNum; }
+            })
+            User.id = largest;
+        };
+    }
     create([fName, lName, email, contactNum, address, bio, profilePic]) {
         User.id += 1;
         this.setUserType("User")
