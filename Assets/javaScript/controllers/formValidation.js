@@ -2,6 +2,7 @@ import { userFirstName, userLastName, userEmail, userContactNumber, userAddress,
 import { formImg } from "../views/homeView/form/imageUpload.js";
 import { lenCheck, nullCheck, profileImgCheck, regexCheck, } from "../views/homeView/form/errorMessages.js";
 import { User } from "../models/User.js";
+import { Admin } from "../models/Admin.js"
 export let selectedIndex = null;
 export let usersDataArray = [];
 let attributes = [
@@ -41,12 +42,19 @@ export let formValidation = () => {
     });
     if (!newUser.profilePicValidation(formImg)) { validationCheck = false; profileImgCheck(formImg); }
     if (validationCheck) {
-        let formData = [$(userFirstName).val(), $(userLastName).val(), $(userEmail).val(), $(userContactNumber).val(), $(userAddress).val(), $(userBio).val(), $(formImg).attr("src")]
-        newUser.create(formData);
-        usersDataArray.push(formData);
-        console.log(`Validation Successful`);
-        console.log(newUser);
-        console.log($(selectUser).val())
+        let formData = [$(userFirstName).val(), $(userLastName).val(), $(userEmail).val(), $(userContactNumber).val(), $(userAddress).val(), $(userBio).val(), $(formImg).attr("src")];
+        if ($(selectUser).val() === "Admin") {
+            let newAdmin = new Admin()
+            formData.push($(adminUsername).val(), $(adminPassword).val());
+            newAdmin.create(formData);
+            usersDataArray.push(newAdmin);
+        } else {
+            let userTypeObj = new User();
+            userTypeObj.create(formData);
+            console.log(userTypeObj);
+            usersDataArray.push(userTypeObj);
+        }
+        console.log(`Validation Successful`)
     } else {
         console.log(`ReEnter Values`);
     }
