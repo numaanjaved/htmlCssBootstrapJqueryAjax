@@ -4,7 +4,7 @@ export let refreshRecords = () => {
     $(usersDataMainContainer).html(``);
     let LS = JSON.parse(localStorage.getItem('Data'));
     if (LS !== null) {
-        LS.forEach(record => {
+        $.each(LS, (ind, record) => {
             recordRow([record.pic,
             record.userId,
             `${record.firstName} ${record.lastName}`,
