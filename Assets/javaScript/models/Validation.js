@@ -58,8 +58,10 @@ export class Validation {
     }
     adminExists() {
         let LS = JSON.parse(localStorage.getItem('Data'));
-        let adminAcc = LS.find((record) => record.userType === "Admin");
-        return adminAcc ? true : false;
+        if (LS !== null) {
+            let adminAcc = LS.find((record) => record.userType === "Admin");
+            return adminAcc ? true : false;
+        }
     }
     setAttribute(att) {
         this.attribute = att;

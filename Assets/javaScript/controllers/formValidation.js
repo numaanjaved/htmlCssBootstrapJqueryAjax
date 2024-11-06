@@ -1,6 +1,6 @@
 import { userFirstName, userLastName, userEmail, userContactNumber, userAddress, userBio, selectUser, adminUsername, adminPassword, usersDataArray } from "../views/homeView/elementReferences.js";
 import { formImg } from "../views/homeView/form/imageUpload.js";
-import { lenCheck, nullCheck, profileImgCheck, regexCheck, } from "../views/homeView/form/errorMessages.js";
+import { lenCheck, nullCheck, profileImgCheck, regexCheck, adminAccCheck } from "../views/homeView/form/errorMessages.js";
 import { User } from "../models/User.js";
 import { Admin } from "../models/Admin.js"
 import { refreshRecords } from "../views/homeView/refreshRecords.js";
@@ -42,7 +42,10 @@ export let formValidation = () => {
         }
         if (!isValid) { validationCheck = false; }
     });
-    if ($(selectUser).val() === "Admin" && adminObj.adminExists()) { validationCheck = false; }
+    if ($(selectUser).val() === "Admin" && adminObj.adminExists()) {
+        validationCheck = false;
+        adminAccCheck(selectUser, false);
+    }
     if (!userObj.profilePicValidation(formImg)) { validationCheck = false; profileImgCheck(formImg); }
     if (validationCheck) {
         let formData = [$(userFirstName).val(), $(userLastName).val(), $(userEmail).val(), $(userContactNumber).val(), $(userAddress).val(), $(userBio).val(), $(formImg).attr("src")];
