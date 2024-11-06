@@ -1,6 +1,7 @@
 import { usersDataMainContainer } from "./record.js";
-let modal = ([profilePic, userName, userEmail, userContactNum, userAddress, userBio, id = null]) => {
-    let modalMainContainer = createNewElement(["section", "user_modal flex-row justify-content-between align-items-center", usersDataMainContainer, null, { id: `${id}` }]);
+export let modal = ([profilePic, userName, userEmail, userContactNum, userAddress, userBio, id = null]) => {
+    let modalMainContainer = createNewElement(["section", "user_modal flex-row justify-content-between align-items-center", ".individual_user_data_container", null, { id: `${id}` }]);
+    console.log(modalMainContainer);
     let modalImageContainer = createNewElement(["div", "image_container d-flex justify-content-center align-items-center flex-column", modalMainContainer]);
     let modalPicFigureTag = createNewElement(["figure", "profile_figure_tag d-flex justify-content-center align-items-center", modalImageContainer]);
     createNewElement(["img", null, modalPicFigureTag, null, { src: `${profilePic}` }]);
@@ -20,9 +21,8 @@ let modal = ([profilePic, userName, userEmail, userContactNum, userAddress, user
     let modalCloseBtn = createNewElement(["button", "modal_close_btn btn btn-danger", btnContainer, `Close`]);
     $(modalCloseBtn).click(() => {
         let records = $(`.individual_user_data`);
-        $.each(records, (record) => { $(record).css("filter", "blur(0px)"); });
-        $(modalMainContainer).css("display", "none");
-        // usersDataMainContainer.style.minHeight = "";
+        $.each(records, (ind, record) => { $(record).css("filter", "blur(0px)"); });
+        $(".user_modal").css("display", "none");
+        $(usersDataMainContainer).css("minHeight", "");
     });
 };
-// modal(["./Assets/images/image5.png", "Ahmed", "AHmed@gmaill.com", "03123123124", "Chakwal", `Tech Person `, `prof001`]);    

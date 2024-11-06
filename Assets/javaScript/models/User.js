@@ -39,7 +39,11 @@ export class User {
         this.setBio(bio);
         this.setProfilePic(profilePic);
     }
-
+    Read(id) {
+        let LS = JSON.parse(localStorage.getItem('Data'));
+        let record = LS.find(record => record.userId === id);
+        if (record) { return record; }
+    }
     isNull(attr) {
         this.validator = new Validation();
         return this.validator.isNull(attr) ? true : false;

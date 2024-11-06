@@ -1,4 +1,3 @@
-import { usersDataArray } from "./elementReferences.js";
 import { recordRow } from "./record.js";
 import { usersDataMainContainer } from "./record.js";
 export let refreshRecords = () => {

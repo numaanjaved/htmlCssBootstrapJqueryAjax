@@ -1,5 +1,5 @@
 .user_modal {
-  display: flex;
+  display: none;
   border-radius: 10px;
   margin-top: 2rem;
   position: absolute;
