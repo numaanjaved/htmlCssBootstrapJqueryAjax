@@ -1,6 +1,7 @@
 import { modal } from "./modal.js";
 import { User } from "../../models/User.js"
 import { usersDataMainContainer } from "./record.js";
+import { refreshRecords } from "./refreshRecords.js"
 let readProfile = (id) => {
     let userInstance = new User();
     let record = userInstance.Read(id)
@@ -12,7 +13,9 @@ let readProfile = (id) => {
     $(window).scrollTop("900");
 }
 let delProfile = (id) => {
-    console.log(id)
+    let userInstance = new User();
+    userInstance.Delete(id);
+    refreshRecords();
 }
 let updateProfile = (id) => {
     console.log(id)
