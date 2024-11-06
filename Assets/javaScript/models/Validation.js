@@ -82,8 +82,3 @@ export class Validation {
         return this.length;
     }
 }
-
-// let newValidation = new Validation();
-// if (newValidation.adminExists()) {
-//     console.log(`hi`)
-// }
