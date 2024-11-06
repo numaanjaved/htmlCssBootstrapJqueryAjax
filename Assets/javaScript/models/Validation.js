@@ -43,13 +43,23 @@ export class Validation {
         localStorage.setItem('Data', JSON.stringify(tempArr));
     }
     createAdmin(dataArr) {
+        let adminCheck = true;
         let newAdmin = new Admin();
         newAdmin.create(dataArr);
-        let tempArr = [];
-        let storedData = localStorage.getItem('Data');
-        if (storedData) { tempArr = JSON.parse(storedData); }
-        tempArr.push(newAdmin);
-        localStorage.setItem('Data', JSON.stringify(tempArr));
+        if (!this.adminExists()) {
+            let tempArr = [];
+            let storedData = localStorage.getItem('Data');
+            if (storedData) { tempArr = JSON.parse(storedData); }
+            tempArr.push(newAdmin);
+            localStorage.setItem('Data', JSON.stringify(tempArr));
+
+        } else { adminCheck = false; }
+        return adminCheck;
+    }
+    adminExists() {
+        let LS = JSON.parse(localStorage.getItem('Data'));
+        let adminAcc = LS.find((record) => record.userType === "Admin");
+        return adminAcc ? true : false;
     }
     setAttribute(att) {
         this.attribute = att;
@@ -70,3 +80,8 @@ export class Validation {
         return this.length;
     }
 }
+
+// let newValidation = new Validation();
+// if (newValidation.adminExists()) {
+//     console.log(`hi`)
+// }

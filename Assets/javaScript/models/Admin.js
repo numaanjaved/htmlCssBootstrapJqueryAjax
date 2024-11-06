@@ -15,6 +15,10 @@ export class Admin extends User {
         this.validator = new Validation();
         this.validator.createAdmin(dataArr);
     }
+    adminExists() {
+        this.validator = new Validation()
+        if (this.validator.adminExists()) { return true; }
+    }
     setAdminName(username) {
         this.adminName = username;
     }

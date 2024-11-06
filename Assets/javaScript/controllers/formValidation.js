@@ -42,13 +42,13 @@ export let formValidation = () => {
         }
         if (!isValid) { validationCheck = false; }
     });
+    if ($(selectUser).val() === "Admin" && adminObj.adminExists()) { validationCheck = false; }
     if (!userObj.profilePicValidation(formImg)) { validationCheck = false; profileImgCheck(formImg); }
     if (validationCheck) {
         let formData = [$(userFirstName).val(), $(userLastName).val(), $(userEmail).val(), $(userContactNumber).val(), $(userAddress).val(), $(userBio).val(), $(formImg).attr("src")];
         if ($(selectUser).val() === "Admin") {
             formData.push($(adminUsername).val(), $(adminPassword).val());
             adminObj.createAdmin(formData);
-            console.log(`Admin Called`)
         } else {
             userObj.createUser(formData);
         }
