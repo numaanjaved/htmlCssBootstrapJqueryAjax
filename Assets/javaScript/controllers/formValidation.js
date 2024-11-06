@@ -48,23 +48,14 @@ export let formValidation = () => {
     }
     if (!userObj.profilePicValidation(formImg)) { validationCheck = false; profileImgCheck(formImg); }
     let formData = [$(userFirstName).val(), $(userLastName).val(), $(userEmail).val(), $(userContactNumber).val(), $(userAddress).val(), $(userBio).val(), $(formImg).attr("src")];
+    if ($(selectUser).val() === "Admin") { formData.push($(adminUsername).val(), $(adminPassword).val()); }
+
     if (validationCheck) {
-
-
         if (selectedIndex !== null) {
             userObj.updateUser(selectedIndex, formData);
-        } else {
-            if ($(selectUser).val() === "Admin") {
-                formData.push($(adminUsername).val(), $(adminPassword).val());
-                adminObj.createAdmin(formData);
-            } else {
-                userObj.createUser(formData);
-            }
-        }
-        console.log(`Validation Successful`)
+        } else { $(selectUser).val() === "Admin" ? adminObj.createAdmin(formData) : userObj.createUser(formData); }
+        console.log(`Validation Successful`);
         refreshRecords();
-    } else {
-        console.log(`ReEnter Values`);
-    }
-};
+    } else { console.log(`ReEnter Values`); }
+}
 refreshRecords();
