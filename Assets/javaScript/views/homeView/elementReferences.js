@@ -1,4 +1,9 @@
 export let usersDataArray = [];
+export let selectedIndex = null;
+export let selectedIndexUpdate = (value) => {
+    selectedIndex = value;
+    return selectedIndex;
+}
 export let userFirstName = $("#user_Fname");
 export let userLastName = $("#user_Lname");
 export let userEmail = $("#user_email");

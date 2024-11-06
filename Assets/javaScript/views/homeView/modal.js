@@ -1,7 +1,6 @@
 import { usersDataMainContainer } from "./record.js";
 export let modal = ([profilePic, userName, userEmail, userContactNum, userAddress, userBio, id = null]) => {
     let modalMainContainer = createNewElement(["section", "user_modal flex-row justify-content-between align-items-center", ".individual_user_data_container", null, { id: `${id}` }]);
-    console.log(modalMainContainer);
     let modalImageContainer = createNewElement(["div", "image_container d-flex justify-content-center align-items-center flex-column", modalMainContainer]);
     let modalPicFigureTag = createNewElement(["figure", "profile_figure_tag d-flex justify-content-center align-items-center", modalImageContainer]);
     createNewElement(["img", null, modalPicFigureTag, null, { src: `${profilePic}` }]);

@@ -30,7 +30,7 @@ export class User {
     create([fName, lName, email, contactNum, address, bio, profilePic]) {
         User.id += 1;
         this.setUserType("User")
-        this.setUserId(User.id);
+        this.setUserId(`prof00${User.id}`);
         this.setFName(fName);
         this.setLName(lName);
         this.setEmail(email);
@@ -44,12 +44,31 @@ export class User {
         let record = LS.find(record => record.userId === id);
         if (record) { return record; }
     }
+    Update(id) {
+        let LS = JSON.parse(localStorage.getItem('Data'));
+        let record = LS.findIndex(record => record.userId === id);
+        return record;
+    }
     Delete(id) {
         let LS = JSON.parse(localStorage.getItem('Data'));
         let record = LS.findIndex(record => record.userId === id);
         LS.splice(record, 1);
         let tempArr = LS;
         localStorage.setItem('Data', JSON.stringify(tempArr));
+    }
+
+    update([fName, lName, email, contactNum, address, bio, profilePic]) {
+        this.setFName(fName);
+        this.setLName(lName);
+        this.setEmail(email);
+        this.setContactNum(contactNum);
+        this.setAddress(address);
+        this.setBio(bio);
+        this.setProfilePic(profilePic);
+    }
+    updateUser(index, dataArray) {
+        this.validator = new Validation();
+        this.validator.updateUser(index, dataArray)
     }
     isNull(attr) {
         this.validator = new Validation();
@@ -72,8 +91,9 @@ export class User {
         this.validator.createUser(dataArr);
     }
     setUserId(userId) {
-        this.userId = `prof00${userId}`;
+        this.userId = userId;
     }
+
     getUserId() {
         return this.userId;
     }

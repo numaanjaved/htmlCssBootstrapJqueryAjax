@@ -2,6 +2,9 @@ import { modal } from "./modal.js";
 import { User } from "../../models/User.js"
 import { usersDataMainContainer } from "./record.js";
 import { refreshRecords } from "./refreshRecords.js"
+import { selectedIndexUpdate, userFirstName, userLastName, userEmail, userContactNumber, userAddress, userBio, adminUsername, adminPassword, selectUser } from "./elementReferences.js";
+import { formImg } from "./form/imageUpload.js";
+
 let readProfile = (id) => {
     let userInstance = new User();
     let record = userInstance.Read(id)
@@ -17,8 +20,33 @@ let delProfile = (id) => {
     userInstance.Delete(id);
     refreshRecords();
 }
+let hideAndScroll = () => {
+    $(".select_container").attr("style", "display: none !important;");
+    $(window).scrollTop("100");
+}
+let feedData = (recData) => {
+    $(formImg).attr("src", recData.pic)
+    userFirstName.val(recData.firstName);
+    userLastName.val(recData.lastName);
+    userEmail.val(recData.email);
+    userContactNumber.val(recData.contactNum);
+    userAddress.val(recData.address);
+    userBio.val(recData.bio);
+    hideAndScroll();
+    if (recData.userType === "Admin") {
+        let adminCont = $(".admin_attr_container ")[0];
+        adminCont.style.display = "flex";
+        $(".admin_heading").css("display", "block");
+        adminUsername.val(recData.adminName);
+        adminPassword.val(recData.adminPassword);
+    }
+}
 let updateProfile = (id) => {
-    console.log(id)
+    let LS = JSON.parse(localStorage.getItem('Data'));
+    let userClassInstance = new User();
+    let record = userClassInstance.Update(id);
+    let currRec = selectedIndexUpdate(record);
+    feedData(LS[currRec]);
 }
 export let readUpdateDelete = (userDataContainer, ProfileBtnOpsContainer, id) => {
     let profileReadBtn = createNewElement(["button", "Ops_Buttons btn btn-success", ProfileBtnOpsContainer, `Read`, { id: "read_btn" }]);

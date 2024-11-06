@@ -1,7 +1,5 @@
 import { User } from "./User.js";
 import { Admin } from "./Admin.js";
-import { userAddress, usersDataArray } from "../views/homeView/elementReferences.js";
-import { usersDataMainContainer } from "../views/homeView/record.js";
 export class Validation {
     attribute;
     regex;
@@ -41,6 +39,16 @@ export class Validation {
         if (storedData) { tempArr = JSON.parse(storedData); }
         tempArr.push(newUser);
         localStorage.setItem('Data', JSON.stringify(tempArr));
+    }
+    updateUser(selectedIndex, dataArr) {
+        let storedData = JSON.parse(localStorage.getItem('Data'));
+        let currUser = storedData[selectedIndex];
+        let userClassInstance = new User();
+        userClassInstance.update(dataArr);
+        userClassInstance.setUserId(currUser.userId);
+        userClassInstance.setUserType(currUser.userType);
+        storedData[selectedIndex] = userClassInstance;
+        localStorage.setItem('Data', JSON.stringify(storedData))
     }
     createAdmin(dataArr) {
         let adminCheck = true;
