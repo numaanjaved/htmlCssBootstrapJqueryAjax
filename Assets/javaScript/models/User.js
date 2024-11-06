@@ -18,12 +18,12 @@ export class User {
         if (LS !== null) {
             let largest = 0;
             let trimId;
-            LS.forEach((record) => {
+            $.each(LS, (ind, record) => {
                 let id = record.userId;
                 trimId = id.substring(6);
                 let toNum = parseInt(trimId);
                 if (toNum > largest) { largest = toNum; }
-            })
+            });
             User.id = largest;
         };
     }
