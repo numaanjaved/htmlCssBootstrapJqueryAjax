@@ -12,8 +12,6 @@ let errorsArray = [
     { "errorCode": "isNull", "errorMsg": "Please Enter Data in the field" },
     { "errorCode": "invalid", "errorMsg": "Please Enter Valid Credentials" },
 ];
-let errorContainers = {
-    login_userName: loginErr,
-    login_userPassword: loginErr
-};
+let errorContainers = { login_userName: loginErr };
 export let nullCheck = (attr, check) => check ? successMsg(attr) : errorMsg(attr, errorsArray[0]);
+export let invalidLogin = (attr, check = true) => check ? successMsg(attr) : errorMsg(attr, errorsArray[1]);

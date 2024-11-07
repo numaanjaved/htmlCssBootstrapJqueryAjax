@@ -1,4 +1,5 @@
 import { Validation } from "./Validation.js";
+import { loginValidation } from "./loginValidation.js";
 import { User } from "./User.js";
 export class Admin extends User {
     userType;
@@ -28,6 +29,10 @@ export class Admin extends User {
     adminExists() {
         this.validator = new Validation()
         if (this.validator.adminExists()) { return true; }
+    }
+    matchCredentials(name, pass) {
+        this.validator = new loginValidation();
+        return this.validator.matchCredentials(name, pass) ? true : false;
     }
     setAdminName(username) {
         this.adminName = username;
