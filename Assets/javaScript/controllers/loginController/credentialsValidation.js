@@ -1,9 +1,9 @@
 import { Admin } from "../../models/Admin.js"
 import { userName, userPassword } from "../../views/loginView/elementReferences.js";
 import { invalidLogin, nullCheck } from "../../views/loginView/loginErrMsg.js";
-console.log()
-$(".login_form").submit((e) => {
-    e.preventDefault();
+import { redirect } from "./login.js";
+
+export let credentialsValidation = () => {
     let validationCheck = true;
     let adminInstance = new Admin();
     if (!adminInstance.isNull(userName) || !adminInstance.isNull(userPassword)) {
@@ -18,13 +18,15 @@ $(".login_form").submit((e) => {
     };
     if (validationCheck) {
         reset();
-    } else {
-        console.log(`Recheck`);
-    }
-});
-
+        return true;
+    } else { return false; }
+}
 let reset = () => {
     $(userName).val("");
     $(userPassword).val("");
     $(".invalid_login_Err").html(``);
 };
+$(".login_form").submit((e) => {
+    e.preventDefault();
+    redirect();
+});
