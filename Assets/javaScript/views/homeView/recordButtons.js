@@ -23,6 +23,8 @@ let delProfile = (id) => {
 let hideAndScroll = () => {
     $(".select_container").attr("style", "display: none !important;");
     $(window).scrollTop("100");
+    $("#submit_btn").html("Update");
+    $("#reset_btn").html("Cancel");
 }
 let feedData = (recData) => {
     $(formImg).attr("src", recData.pic)

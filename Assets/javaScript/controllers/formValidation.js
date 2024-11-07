@@ -5,6 +5,7 @@ import { User } from "../models/User.js";
 import { Admin } from "../models/Admin.js"
 import { refreshRecords } from "../views/homeView/refreshRecords.js";
 import { selectedIndex } from "../views/homeView/elementReferences.js";
+import { resetForm } from "../views/homeView/form/fromReset.js";
 
 let attributes = [
     { attr: userFirstName, regex: /^[a-zA-Z\s]*$/, length: 30 },
@@ -56,6 +57,7 @@ export let formValidation = () => {
         } else { $(selectUser).val() === "Admin" ? adminObj.createAdmin(formData) : userObj.createUser(formData); }
         console.log(`Validation Successful`);
         refreshRecords();
+        resetForm();
     } else { console.log(`ReEnter Values`); }
 }
 refreshRecords();
