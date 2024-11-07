@@ -64,6 +64,16 @@ export class Validation {
         } else { adminCheck = false; }
         return adminCheck;
     }
+    updateAdmin(selectedIndex, dataArr) {
+        let storedData = JSON.parse(localStorage.getItem('Data'));
+        let currData = storedData[selectedIndex];
+        let adminClassInstance = new Admin();
+        adminClassInstance.update(dataArr);
+        adminClassInstance.setUserType(currData.userType);
+        adminClassInstance.setUserId(currData.userId);
+        storedData[selectedIndex] = adminClassInstance;
+        localStorage.setItem('Data', JSON.stringify(storedData));
+    }
     adminExists() {
         let LS = JSON.parse(localStorage.getItem('Data'));
         if (LS !== null) {

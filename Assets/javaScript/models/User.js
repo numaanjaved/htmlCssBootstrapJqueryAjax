@@ -1,4 +1,3 @@
-import { usersDataArray } from "../views/homeView/elementReferences.js";
 import { Validation } from "./Validation.js";
 export class User {
     static id = 0;

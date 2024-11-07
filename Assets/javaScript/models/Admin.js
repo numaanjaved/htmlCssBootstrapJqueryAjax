@@ -21,6 +21,10 @@ export class Admin extends User {
         this.setAdminPassword(adminPass);
         this.setUserType("Admin");
     }
+    updateAdmin(index, dataArray) {
+        this.validator = new Validation();
+        this.validator.updateAdmin(index, dataArray);
+    }
     adminExists() {
         this.validator = new Validation()
         if (this.validator.adminExists()) { return true; }

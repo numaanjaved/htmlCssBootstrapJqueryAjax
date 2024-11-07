@@ -42,7 +42,7 @@ export let formValidation = () => {
         }
         if (!isValid) { validationCheck = false; }
     });
-    if ($(selectUser).val() === "Admin" && adminObj.adminExists()) {
+    if ($(selectUser).val() === "Admin" && selectedIndex === null && adminObj.adminExists()) {
         validationCheck = false;
         adminAccCheck(selectUser, false);
     }
@@ -52,7 +52,7 @@ export let formValidation = () => {
 
     if (validationCheck) {
         if (selectedIndex !== null) {
-            userObj.updateUser(selectedIndex, formData);
+            $(selectUser).val() === "Admin" ? adminObj.updateAdmin(selectedIndex, formData) : userObj.updateUser(selectedIndex, formData);
         } else { $(selectUser).val() === "Admin" ? adminObj.createAdmin(formData) : userObj.createUser(formData); }
         console.log(`Validation Successful`);
         refreshRecords();

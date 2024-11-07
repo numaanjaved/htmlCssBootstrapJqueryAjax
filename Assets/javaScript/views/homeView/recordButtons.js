@@ -32,6 +32,7 @@ let feedData = (recData) => {
     userContactNumber.val(recData.contactNum);
     userAddress.val(recData.address);
     userBio.val(recData.bio);
+    $(selectUser).val(recData.userType);
     hideAndScroll();
     if (recData.userType === "Admin") {
         let adminCont = $(".admin_attr_container ")[0];
