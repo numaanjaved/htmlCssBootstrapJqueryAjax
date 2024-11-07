@@ -1,11 +1,11 @@
-import { userFirstName, userLastName, userEmail, userContactNumber, userAddress, userBio, selectUser, adminUsername, adminPassword, usersDataArray } from "../views/homeView/elementReferences.js";
-import { formImg } from "../views/homeView/form/imageUpload.js";
-import { lenCheck, nullCheck, profileImgCheck, regexCheck, adminAccCheck } from "../views/homeView/form/errorMessages.js";
-import { User } from "../models/User.js";
-import { Admin } from "../models/Admin.js"
-import { refreshRecords } from "../views/homeView/refreshRecords.js";
-import { selectedIndex } from "../views/homeView/elementReferences.js";
-import { resetForm } from "../views/homeView/form/fromReset.js";
+import { userFirstName, userLastName, userEmail, userContactNumber, userAddress, userBio, selectUser, adminUsername, adminPassword, usersDataArray } from "../../views/homeView/elementReferences.js";
+import { formImg } from "../../views/homeView/form/imageUpload.js";
+import { lenCheck, nullCheck, profileImgCheck, regexCheck, adminAccCheck } from "../../views/homeView/form/errorMessages.js";
+import { User } from "../../models/User.js";
+import { Admin } from "../../models/Admin.js"
+import { refreshRecords } from "../../views/homeView/refreshRecords.js";
+import { selectedIndex } from "../../views/homeView/elementReferences.js";
+import { resetForm } from "../../views/homeView/form/fromReset.js";
 
 let attributes = [
     { attr: userFirstName, regex: /^[a-zA-Z\s]*$/, length: 30 },

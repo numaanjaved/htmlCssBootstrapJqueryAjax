@@ -18,7 +18,7 @@ export let resetForm = () => {
     $(".select_container").attr("style", "display: flex !important;");
     let adminCont = $(".admin_attr_container ")[0];
     adminCont.style.display = "none";
-    $(".admin_heading").css("none", "block");
+    $(".admin_heading").css("display", "none");
 }
 
 $("#reset_btn").click(() => {
