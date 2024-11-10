@@ -1,4 +1,5 @@
 import { usersDataMainContainer } from "./record.js";
+import { createNewElement } from "../components/createElement.js";
 export let modal = ([profilePic, userName, userEmail, userContactNum, userAddress, userBio, id = null]) => {
     let modalMainContainer = createNewElement(["section", "user_modal flex-row justify-content-between align-items-center", ".individual_user_data_container", null, { id: `${id}` }]);
     let modalImageContainer = createNewElement(["div", "image_container d-flex justify-content-center align-items-center flex-column", modalMainContainer]);
