@@ -4,7 +4,7 @@ import { usersDataMainContainer } from "./record.js";
 import { refreshRecords } from "./refreshRecords.js"
 import { selectedIndexUpdate, userFirstName, userLastName, userEmail, userContactNumber, userAddress, userBio, adminUsername, adminPassword, selectUser } from "./elementReferences.js";
 import { formImg } from "./form/imageUpload.js";
-
+import { createNewElement } from "../components/createElement.js";
 let readProfile = (id) => {
     let userInstance = new User();
     let record = userInstance.Read(id)

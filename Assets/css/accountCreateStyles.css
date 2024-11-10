@@ -1,0 +1,119 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+figure,
+p,
+h3 {
+  margin: 0;
+}
+main {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.notification_container {
+  margin-top: 2px;
+  margin-right: 7px;
+  width: 550px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: transparent;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  & .picture_container {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 20%;
+    > figure {
+      height: 80px;
+      width: 80px;
+      margin: 5px 10px;
+      border-radius: 2000px;
+      -webkit-border-radius: 2000px;
+      -moz-border-radius: 2000px;
+      -ms-border-radius: 2000px;
+      -o-border-radius: 2000px;
+      overflow: hidden;
+      border: 2px solid rgb(86, 205, 86);
+      box-shadow: 1px 1px 2px 1px #1f1f1f2f;
+      > img {
+        height: 80px;
+        width: 80px;
+        overflow: hidden;
+      }
+    }
+  }
+  & .text_container {
+    border-radius: 1000px;
+    -webkit-border-radius: 1000px;
+    -moz-border-radius: 1000px;
+    -ms-border-radius: 1000px;
+    -o-border-radius: 1000px;
+    background-color: #ccffbc;
+    border: 2px solid rgb(86, 205, 86);
+    font-family: "poppins", sans-serif;
+    color: rgb(54, 54, 54);
+    height: 100%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+
+    > .notification_heading {
+      padding: 10px 5px;
+      font-size: 15px;
+      text-align: center;
+      width: 100%;
+      background-color: transparent;
+      border-radius: 5px;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      -ms-border-radius: 3px;
+      -o-border-radius: 3px;
+      font-weight: 500;
+    }
+  }
+  & .notification_close_btn {
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ff3b3b;
+    position: absolute;
+    top: 27px;
+    right: 25px;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    /* color: #fff; */
+    font-weight: 700;
+    &:hover {
+      color: #bc2c2c;
+    }
+  }
+}

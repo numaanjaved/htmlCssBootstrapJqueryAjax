@@ -1,4 +1,5 @@
 import { readUpdateDelete } from "./recordButtons.js";
+import { createNewElement } from "../components/createElement.js";
 export let usersDataMainContainer = $(".individual_user_data_container")[0];
 export let recordRow = ([profilePic, userId, userName, userType]) => {
     let userDataContainer = createNewElement(["div", "individual_user_data w-100 d-flex justify-content-between align-items-center", usersDataMainContainer]);

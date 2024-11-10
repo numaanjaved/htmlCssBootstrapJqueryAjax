@@ -1,4 +1,4 @@
-let createNewElement = ([elemName, elemClass = null, elemParent, elemContent = null, attributes = {}]) => {
+export let createNewElement = ([elemName, elemClass = null, elemParent, elemContent = null, attributes = {}]) => {
     let newElement = document.createElement(`${elemName}`);
     if (Array.isArray(elemClass)) {
         $(elemClass, className => $(newElement).addClass(`${className}`));
