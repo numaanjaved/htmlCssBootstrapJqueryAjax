@@ -55,13 +55,13 @@ export let formValidation = () => {
         if (selectedIndex !== null) {
             $(selectUser).val() === "Admin" ? adminObj.updateAdmin(selectedIndex, formData) : userObj.updateUser(selectedIndex, formData);
         } else {
-            if ($(selectUser).val() === "Admin") {
-                adminObj.createAdmin(formData)
+            try {
+                $(selectUser).val() === "Admin" ? adminObj.createAdmin(formData) : userObj.createUser(formData);
                 accountCreated($(formImg).attr("src"));
-            } else {
-                userObj.createUser(formData);
-                accountCreated($(formImg).attr("src"));
+            } catch (error) {
+                console.log(`Error`);
             }
+
         }
         refreshRecords();
         resetForm();

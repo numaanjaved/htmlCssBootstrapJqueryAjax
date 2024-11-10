@@ -73,8 +73,6 @@ main {
     -moz-border-radius: 1000px;
     -ms-border-radius: 1000px;
     -o-border-radius: 1000px;
-    background-color: #ccffbc;
-    border: 2px solid rgb(86, 205, 86);
     font-family: "poppins", sans-serif;
     color: rgb(54, 54, 54);
     height: 100%;
@@ -121,4 +119,8 @@ main {
       color: #bc2c2c;
     }
   }
+}
+.successCustom {
+  background-color: #ccffbc;
+  border: 2px solid rgb(86, 205, 86);
 }
