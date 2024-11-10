@@ -15,3 +15,7 @@ let accountCreated = (src, id) => {
 }
 
 accountCreated("https://static.vecteezy.com/system/resources/thumbnails/001/840/612/small_2x/picture-profile-icon-male-icon-human-or-people-sign-and-symbol-free-vector.jpg", "prof001");
+
+window.addEventListener("load", () => {
+    $(".notification_container").css("right", "0")
+})

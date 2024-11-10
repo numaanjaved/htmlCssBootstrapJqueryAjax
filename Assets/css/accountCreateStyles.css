@@ -16,6 +16,7 @@ main {
   position: relative;
   top: 0;
   left: 0;
+  overflow: hidden;
 }
 .notification_container {
   margin-top: 2px;
@@ -26,13 +27,18 @@ main {
   justify-content: flex-start;
   position: absolute;
   top: 0;
-  right: 0;
+  right: -1000px;
   background-color: transparent;
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
+  transition: all 0.7s ease;
+  -webkit-transition: all 0.7s ease;
+  -moz-transition: all 0.7s ease;
+  -ms-transition: all 0.7s ease;
+  -o-transition: all 0.7s ease;
   & .picture_container {
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
@@ -110,7 +116,6 @@ main {
     -o-border-radius: 50%;
     cursor: pointer;
     border: none;
-    /* color: #fff; */
     font-weight: 700;
     &:hover {
       color: #bc2c2c;
