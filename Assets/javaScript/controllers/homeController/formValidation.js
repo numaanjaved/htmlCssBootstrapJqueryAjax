@@ -6,7 +6,7 @@ import { Admin } from "../../models/Admin.js"
 import { refreshRecords } from "../../views/homeView/refreshRecords.js";
 import { selectedIndex } from "../../views/homeView/elementReferences.js";
 import { resetForm } from "../../views/homeView/form/fromReset.js";
-
+import { accountCreated } from "../../views/homeView/Alerts/accountCreate.js";
 let attributes = [
     { attr: userFirstName, regex: /^[a-zA-Z\s]*$/, length: 30 },
     { attr: userLastName, regex: /^[a-zA-Z\s]*$/, length: 30 },
@@ -54,8 +54,15 @@ export let formValidation = () => {
     if (validationCheck) {
         if (selectedIndex !== null) {
             $(selectUser).val() === "Admin" ? adminObj.updateAdmin(selectedIndex, formData) : userObj.updateUser(selectedIndex, formData);
-        } else { $(selectUser).val() === "Admin" ? adminObj.createAdmin(formData) : userObj.createUser(formData); }
-        console.log(`Validation Successful`);
+        } else {
+            if ($(selectUser).val() === "Admin") {
+                adminObj.createAdmin(formData)
+                accountCreated($(formImg).attr("src"));
+            } else {
+                userObj.createUser(formData);
+                accountCreated($(formImg).attr("src"));
+            }
+        }
         refreshRecords();
         resetForm();
     } else { console.log(`ReEnter Values`); }
