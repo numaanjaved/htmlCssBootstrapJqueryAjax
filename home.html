@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="./Assets/css/homeStyles.css">
     <link rel="stylesheet" href="./Assets/css/modalStyles.css">
     <link rel="stylesheet" href="./Assets/css/accountCreateStyles.css">
+    <link rel="stylesheet" href="./Assets/css/alertError.css">
     <title>CRUD | Home Page</title>
 </head>
 
@@ -28,7 +29,7 @@
 
     <header class="header d-flex justify-content-center align-items-center">
         <nav class="navbar d-flex justify-content-between align-items-center">
-            <div class="logo d-flex justify-content-center align-items-center  gap-2"> <i
+            <div class="logo d-flex justify-content-center align-items-center gap-2"> <i
                     class="fa-solid fa-address-card"></i>
                 <span class="logoName">Profiles</span>
             </div>
@@ -36,6 +37,7 @@
         </nav>
     </header>
     <main class="main">
+        <div class="notifications_container d-flex flex-column gap-2"></div>
         <section class="data_input_section d-flex justify-content-center align-items-center w-100">
             <form novalidate class="data_form d-flex flex-row justify-content-center align-items-center w-100">
                 <div
@@ -184,6 +186,7 @@
     <script src="./Assets/javaScript/views/homeView/form/fromReset.js" type="module"></script>
     <script src="./Assets/javaScript/controllers/homeController/formValidation.js" type="module"></script>
     <script src="./Assets/javaScript/views/homeView/Alerts/accountCreate.js" type="module"></script>
+    <script src="./Assets/javaScript/views/homeView/Alerts/accountCreateErr.js" type="module"></script>
     <script src="./Assets/javaScript/views/homeView/modal.js" type="module"></script>
     <script src="./Assets/javaScript/views/homeView/home.js" type="module"></script>
     <script src="./Assets/javaScript/views/homeView/footer.js"></script>

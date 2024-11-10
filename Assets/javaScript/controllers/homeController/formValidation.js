@@ -7,6 +7,7 @@ import { refreshRecords } from "../../views/homeView/refreshRecords.js";
 import { selectedIndex } from "../../views/homeView/elementReferences.js";
 import { resetForm } from "../../views/homeView/form/fromReset.js";
 import { accountCreated } from "../../views/homeView/Alerts/accountCreate.js";
+import { accountCreateErr } from "../../views/homeView/Alerts/accountCreateErr.js";
 let attributes = [
     { attr: userFirstName, regex: /^[a-zA-Z\s]*$/, length: 30 },
     { attr: userLastName, regex: /^[a-zA-Z\s]*$/, length: 30 },
@@ -59,12 +60,12 @@ export let formValidation = () => {
                 $(selectUser).val() === "Admin" ? adminObj.createAdmin(formData) : userObj.createUser(formData);
                 accountCreated($(formImg).attr("src"));
             } catch (error) {
-                console.log(`Error`);
+                accountCreateErr(`Error While Creating Account`);
             }
 
         }
         refreshRecords();
         resetForm();
-    } else { console.log(`ReEnter Values`); }
+    } else { accountCreateErr(`Error While Creating Account`); }
 }
 refreshRecords();

@@ -1,16 +1,20 @@
 import { createNewElement } from "../../components/createElement.js";
 
-
-export let accountCreated = (src, id) => {
+let createAccCounter = 0;
+export let accountCreated = (src) => {
+    createAccCounter += 1;
     let notificationContainer = $("<div></div>");
-    notificationContainer.addClass("notification_container");
-    $(".main").prepend(notificationContainer)
-    let pictureContainer = createNewElement(["div", "picture_container", ".notification_container"]);
-    let figureTag = createNewElement(["figure", null, pictureContainer]);
-    createNewElement(["img", "notificationPic", figureTag, null, { src: src, alt: "User Profile Picture", id: "notification_Img" }])
-    let textContainer = createNewElement(["div", "text_container successCustom ", ".notification_container"]);
-    createNewElement(["h3", "notification_heading", textContainer, `Profile Created Successfully!`]);
-    createNewElement(["button", "notification_close_btn", textContainer, `<i class="fa-solid fa-circle-xmark"></i>`, { id: "notificationCloseBtn", type: "button" }]);
+    notificationContainer.addClass(`notification_container successCont${createAccCounter}`);
+    $(".notifications_container").prepend(notificationContainer);
+    let pictureContainer = createNewElement(["div", `picture_container picContainer${createAccCounter}`, `.successCont${createAccCounter}`]);
+    let figureTag = createNewElement(["figure", `figTag${createAccCounter}`, `.picContainer${createAccCounter}`]);
+    createNewElement(["img", "notificationPic", `.figTag${createAccCounter}`, null, { src: src, alt: "User Profile Picture", id: "notification_Img" }]);
+    let textContainer = createNewElement(["div", `text_container successCustom textCont${createAccCounter}`, `.successCont${createAccCounter}`]);
+    createNewElement(["h3", "notification_heading", `.textCont${createAccCounter}`, `Profile Created Successfully!`]);
+    createNewElement(["button", "notification_close_btn successBtn", `.textCont${createAccCounter}`, `<i class="fa-solid fa-circle-xmark"></i>`, { id: "successNotificationCloseBtn", type: "button" }]);
 };
 
-$(document).on("click", "#notificationCloseBtn", () => { $(".notification_container").remove(); });
+$(document).on("click", "#successNotificationCloseBtn", (e) => {
+    let notification = e.target.parentElement.parentElement.parentElement;
+    $(notification).remove();
+});
