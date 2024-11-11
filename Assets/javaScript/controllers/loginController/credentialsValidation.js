@@ -2,7 +2,7 @@ import { Admin } from "../../models/Admin.js"
 import { userName, userPassword } from "../../views/loginView/elementReferences.js";
 import { invalidLogin, nullCheck } from "../../views/loginView/loginErrMsg.js";
 import { redirect } from "./login.js";
-
+import { errorNotification } from "../../views/homeView/Alerts/errorNotification.js"
 export let credentialsValidation = () => {
     let validationCheck = true;
     let adminInstance = new Admin();
@@ -19,7 +19,10 @@ export let credentialsValidation = () => {
     if (validationCheck) {
         reset();
         return true;
-    } else { return false; }
+    } else {
+        errorNotification(`Invalid Credentials`);
+        return false;
+    }
 }
 let reset = () => {
     $(userName).val("");
