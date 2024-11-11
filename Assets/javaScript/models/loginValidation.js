@@ -1,13 +1,17 @@
 export class loginValidation {
     matchUsername(userName) {
+        let userNameCheck = true
         let LS = JSON.parse(localStorage.getItem('Data'));
         let admin = LS.find(rec => rec.userType === "Admin");
-        return admin.adminName !== $(userName).val() ? false : true;
+        if (admin.adminName !== $(userName).val()) { userNameCheck = false; }
+        return userNameCheck;
     }
     matchPassword(userPass) {
+        let userPassCheck = true;
         let LS = JSON.parse(localStorage.getItem('Data'));
         let admin = LS.find(rec => rec.userType === "Admin");
-        return admin.adminPassword !== $(userPass).val() ? false : true;
+        if (admin.adminPassword !== $(userPass).val()) { userPassCheck = false; }
+        return userPassCheck;
     }
     matchCredentials(userName, userPass) {
         let userCheck = true;
