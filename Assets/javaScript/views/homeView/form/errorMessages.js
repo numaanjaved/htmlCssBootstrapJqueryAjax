@@ -3,10 +3,7 @@ let errorMsg = (attribute, statusMsg) => {
     let attributeName = errorContainers[$(attribute).attr("name")];
     errorNotification(`${attributeName}: ${statusMsg.errorMsg}`);
 };
-let successMsg = (attr) => {
-    let msg = errorContainers[$(attr).attr("name")];
-    $(msg).css("display", "none").html(``);
-};
+let successMsg = () => { $(`notifications_container`).html(``) };
 let errorsArray = [
     { "errorCode": "isNull", "errorMsg": "Please Enter Data in the field" },
     { "errorCode": "matchFormat", "errorMsg": "Please Match The Requested Format" },
@@ -26,8 +23,8 @@ let errorContainers = {
     admin_password: "User Password",
     select_user: "User type"
 };
-export let nullCheck = (attr, check) => { if (check) { successMsg(attr) } else { errorMsg(attr, errorsArray[0]); } };
-export let regexCheck = (attr, check) => { if (check) { successMsg(attr) } else { errorMsg(attr, errorsArray[1]); } };
-export let lenCheck = (attr, check) => { if (check) { successMsg(attr) } else { errorMsg(attr, errorsArray[2]); } };
-export let profileImgCheck = (attr, check) => { if (check) { successMsg(attr) } else { errorMsg(attr, errorsArray[3]); } };
-export let adminAccCheck = (attr, check = true) => { if (check) { successMsg(attr) } else { errorMsg(attr, errorsArray[4]); } };
+export let nullCheck = (attr, check) => { if (check) { successMsg() } else { errorMsg(attr, errorsArray[0]); } };
+export let regexCheck = (attr, check) => { if (check) { successMsg() } else { errorMsg(attr, errorsArray[1]); } };
+export let lenCheck = (attr, check) => { if (check) { successMsg() } else { errorMsg(attr, errorsArray[2]); } };
+export let profileImgCheck = (attr, check) => { if (check) { successMsg() } else { errorMsg(attr, errorsArray[3]); } };
+export let adminAccCheck = (attr, check = true) => { if (check) { successMsg() } else { errorMsg(attr, errorsArray[4]); } };
