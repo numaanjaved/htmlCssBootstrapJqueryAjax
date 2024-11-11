@@ -31,8 +31,10 @@ export class Admin extends User {
         if (this.validator.adminExists()) { return true; }
     }
     matchCredentials(name, pass) {
+        let credentialsCheck = true;
         this.validator = new loginValidation();
-        return this.validator.matchCredentials(name, pass) ? true : false;
+        if (!this.validator.matchCredentials(name, pass)) { credentialsCheck = false; }
+        return credentialsCheck;
     }
     setAdminName(username) {
         this.adminName = username;
