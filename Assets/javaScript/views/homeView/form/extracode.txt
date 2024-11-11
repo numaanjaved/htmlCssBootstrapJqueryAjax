@@ -1,6 +1,9 @@
+import { FnameErr, LnameErr, emailErr, contactErr, addressErr, bioErr, image_error_msg, userNameErr, userPassErr, userTypeErr } from "../elementReferences.js";
+import { formImg } from "./imageUpload.js";
 import { errorNotification } from "../Alerts/errorNotification.js";
 let errorMsg = (attribute, statusMsg) => {
     let attributeName = errorContainers[$(attribute).attr("name")];
+    // $(msg).css("display", "block").html(`${statusMsg.errorCode}: ${statusMsg.errorMsg}`);
     errorNotification(`${attributeName}: ${statusMsg.errorMsg}`);
 };
 let successMsg = (attr) => {
@@ -14,6 +17,18 @@ let errorsArray = [
     { "errorCode": "noPicture", "errorMsg": "Please Upload Profile Picture" },
     { "errorCode": "adminFound", "errorMsg": "There is Already an Admin Account" },
 ];
+// let errorContainers = {
+//     user_Fname: FnameErr,
+//     user_Lname: LnameErr,
+//     user_email: emailErr,
+//     user_contact: contactErr,
+//     user_address: addressErr,
+//     user_bio: bioErr,
+//     profile_img: image_error_msg,
+//     admin_name: userNameErr,
+//     admin_password: userPassErr,
+//     select_user: userTypeErr
+// };
 let errorContainers = {
     user_Fname: "First Name",
     user_Lname: "Last Name",

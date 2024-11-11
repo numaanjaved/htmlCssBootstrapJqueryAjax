@@ -2,5 +2,6 @@ import { formValidation } from "../../controllers/homeController/formValidation.
 let form = $('form');
 $(form).submit((e) => {
     e.preventDefault();
+    $(`.notifications_container`).html(``);
     formValidation();
 });
