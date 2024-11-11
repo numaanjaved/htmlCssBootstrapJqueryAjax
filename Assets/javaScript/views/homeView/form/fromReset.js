@@ -27,6 +27,4 @@ export let resetForm = () => {
     }
 }
 
-$("#reset_btn").click(() => {
-    resetForm();
-})
+$("#reset_btn").click(() => { resetForm(); })
