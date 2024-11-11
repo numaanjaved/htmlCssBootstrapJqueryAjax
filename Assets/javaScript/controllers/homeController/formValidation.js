@@ -60,20 +60,17 @@ export let formValidation = () => {
     if (validationCheck) {
         if (selectedIndex !== null) {
             try {
-                $(selectUser).val() === "Admin" ? adminObj.updateAdmin(selectedIndex, formData) : userObj.updateUser(selectedIndex, formData);
+                if ($(selectUser).val() === "Admin") {
+                    adminObj.updateAdmin(selectedIndex, formData);
+                } else { userObj.updateUser(selectedIndex, formData); }
                 accountUpdated($(formImg).attr("src"));
-            } catch (error) {
-                errorNotification(`Error While updating Account`);
-            }
+            } catch (error) { errorNotification(`Error While updating Account`); }
 
         } else {
             try {
-                $(selectUser).val() === "Admin" ? adminObj.createAdmin(formData) : userObj.createUser(formData);
+                if ($(selectUser).val() === "Admin") { adminObj.createAdmin(formData); } else { userObj.createUser(formData); }
                 accountCreated($(formImg).attr("src"));
-            } catch (error) {
-                errorNotification(`Error While Creating Account`);
-            }
-
+            } catch (error) { errorNotification(`Error While Creating Account`); }
         }
         refreshRecords();
         resetForm();
