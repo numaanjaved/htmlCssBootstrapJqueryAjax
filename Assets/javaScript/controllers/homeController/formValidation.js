@@ -8,7 +8,7 @@ import { selectedIndex } from "../../views/homeView/elementReferences.js";
 import { resetForm } from "../../views/homeView/form/fromReset.js";
 import { accountCreated } from "../../views/homeView/Alerts/accountCreate.js";
 import { accountCreateErr } from "../../views/homeView/Alerts/accountCreateErr.js";
-let attributes = [
+export let attributes = [
     { attr: userFirstName, regex: /^[a-zA-Z\s]*$/, length: 30 },
     { attr: userLastName, regex: /^[a-zA-Z\s]*$/, length: 30 },
     { attr: userEmail, regex: /^[a-zA-Z0-9]+(?:[._][a-zA-Z0-9]+)*@[A-Za-z]+\.[A-Za-z]{2,}$/, length: 100 },
@@ -23,6 +23,10 @@ export let formValidation = () => {
     if ($(selectUser).val() === "Admin") {
         attributes.push({ attr: adminUsername, regex: /^[a-zA-Z0-9_]*$/, length: 30 },
             { attr: adminPassword, regex: /^[a-zA-Z0-9_#@.&$]*$/, length: 30 });
+    } else {
+        let a = attributes.find(item => item.attr === adminUsername);
+        let b = attributes.find(item => item.attr === adminPassword);
+        if (a || b) { attributes.pop(a); attributes.pop(b); }
     }
     $.each(attributes, (index, value) => {
         let isValid = true;
@@ -66,6 +70,6 @@ export let formValidation = () => {
         }
         refreshRecords();
         resetForm();
-    } else { accountCreateErr(`Error While Creating Account`); }
+    } else { accountCreateErr(`Validation Error`); }
 }
 refreshRecords();
