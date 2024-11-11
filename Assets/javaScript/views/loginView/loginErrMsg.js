@@ -13,5 +13,9 @@ let errorsArray = [
     { "errorCode": "invalid", "errorMsg": "Please Enter Valid Credentials" },
 ];
 let errorContainers = { login_userName: loginErr };
-export let nullCheck = (attr, check) => check ? successMsg(attr) : errorMsg(attr, errorsArray[0]);
-export let invalidLogin = (attr, check = true) => check ? successMsg(attr) : errorMsg(attr, errorsArray[1]);
+export let nullCheck = (attr, check) => {
+    if (check) { successMsg(attr); } else { errorMsg(attr, errorsArray[0]); }
+};
+export let invalidLogin = (attr, check = true) => {
+    if (check) { successMsg(attr) } else { errorMsg(attr, errorsArray[1]) }
+};
