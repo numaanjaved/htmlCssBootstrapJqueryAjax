@@ -70,20 +70,28 @@ export class User {
         this.validator.updateUser(index, dataArray)
     }
     isNull(attr) {
+        let isNullCheck = true;
         this.validator = new Validation();
-        return this.validator.isNull(attr) ? true : false;
+        if (!this.validator.isNull(attr)) { isNullCheck = false }
+        return isNullCheck;
     }
     matchRegex(attr, regex) {
+        let regexCheck = true;
         this.validator = new Validation();
-        return this.validator.matchRegex(attr, regex) ? true : false;
+        if (!this.validator.matchRegex(attr, regex)) { regexCheck = false; }
+        return regexCheck;
     }
     checkLength(attr, len) {
+        let lengthCheck = true;
         this.validator = new Validation();
-        return this.validator.checkLength(attr, len) ? true : false;
+        if (!this.validator.checkLength(attr, len)) { lengthCheck = false; }
+        return lengthCheck;
     }
     profilePicValidation(img) {
+        let profilePicCheck = true;
         this.validator = new Validation();
-        return this.validator.profilePicVal(img) ? true : false;
+        if (!this.validator.profilePicVal(img)) { profilePicCheck = false; }
+        return profilePicCheck;
     }
     createUser(dataArr) {
         this.validator = new Validation();
