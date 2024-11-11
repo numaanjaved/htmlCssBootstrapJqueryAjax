@@ -8,7 +8,7 @@ export let accountCreateErr = (errorMsg) => {
     $(".notifications_container").prepend(errNotificationContainer);
     createNewElement(["div", `err_text_container errorCustom errTextCont${containerId}`, `.cont${containerId}`]);
     createNewElement(["h3", "notification_err_heading", `.errTextCont${containerId}`, errorMsg]);
-    createNewElement(["button", "err_notification_close_btn errorBtn", `.errTextCont${containerId}`, `<i i class="fa-solid fa-circle-xmark" ></i > `, { id: `errNotificationCloseBtn`, type: "button" }]);
+    createNewElement(["button", "err_notification_close_btn", `.errTextCont${containerId}`, `<i i class="fa-solid fa-circle-xmark" ></i > `, { id: `errNotificationCloseBtn`, type: "button" }]);
 };
 
 $(document).on("click", "#errNotificationCloseBtn", (e) => {

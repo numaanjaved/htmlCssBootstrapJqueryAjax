@@ -19,6 +19,9 @@ main {
   overflow: hidden;
 }
 .notifications_container {
+  position: absolute;
+  top: 0;
+  right: 0;
   width: 600px;
 }
 .notification_container {
@@ -48,8 +51,7 @@ main {
     flex-direction: column;
     height: 100%;
     width: 20%;
-    > figure {
-      background-color: #ccffbc;
+    & figure {
       height: 80px;
       width: 80px;
       margin: 5px 10px;
@@ -59,9 +61,8 @@ main {
       -ms-border-radius: 2000px;
       -o-border-radius: 2000px;
       overflow: hidden;
-      border: 2px solid rgb(86, 205, 86);
       box-shadow: 1px 1px 2px 1px #1f1f1f2f;
-      > img {
+      & img {
         height: 80px;
         width: 80px;
         overflow: hidden;
@@ -83,7 +84,7 @@ main {
     align-items: center;
     justify-content: start;
 
-    > .notification_heading {
+    & .notification_heading {
       padding: 10px 5px;
       font-size: 15px;
       text-align: center;
@@ -119,12 +120,19 @@ main {
     }
   }
 }
-.successCustom {
+.greenBg {
   background-color: #ccffbc;
+}
+.greenBorder {
   border: 2px solid rgb(86, 205, 86);
 }
-
-.successBtn {
+.notificationClose {
   top: 27px;
   right: 25px;
+}
+.blueBg {
+  background-color: #bde5ff;
+}
+.blueBorder {
+  border: 2px solid rgb(54, 78, 177);
 }
