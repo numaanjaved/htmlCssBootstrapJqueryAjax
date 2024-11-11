@@ -7,7 +7,8 @@ import { refreshRecords } from "../../views/homeView/refreshRecords.js";
 import { selectedIndex } from "../../views/homeView/elementReferences.js";
 import { resetForm } from "../../views/homeView/form/fromReset.js";
 import { accountCreated } from "../../views/homeView/Alerts/accountCreate.js";
-import { accountCreateErr } from "../../views/homeView/Alerts/accountCreateErr.js";
+import { errorNotification } from "../../views/homeView/Alerts/errorNotification.js";
+import { accountUpdated } from "../../views/homeView/Alerts/accountUpdate.js";
 export let attributes = [
     { attr: userFirstName, regex: /^[a-zA-Z\s]*$/, length: 30 },
     { attr: userLastName, regex: /^[a-zA-Z\s]*$/, length: 30 },
@@ -58,18 +59,24 @@ export let formValidation = () => {
 
     if (validationCheck) {
         if (selectedIndex !== null) {
-            $(selectUser).val() === "Admin" ? adminObj.updateAdmin(selectedIndex, formData) : userObj.updateUser(selectedIndex, formData);
+            try {
+                $(selectUser).val() === "Admin" ? adminObj.updateAdmin(selectedIndex, formData) : userObj.updateUser(selectedIndex, formData);
+                accountUpdated($(formImg).attr("src"));
+            } catch (error) {
+                errorNotification(`Error While updating Account`);
+            }
+
         } else {
             try {
                 $(selectUser).val() === "Admin" ? adminObj.createAdmin(formData) : userObj.createUser(formData);
                 accountCreated($(formImg).attr("src"));
             } catch (error) {
-                accountCreateErr(`Error While Creating Account`);
+                errorNotification(`Error While Creating Account`);
             }
 
         }
         refreshRecords();
         resetForm();
-    } else { accountCreateErr(`Validation Error`); }
+    } else { errorNotification(`Validation Error`); }
 }
 refreshRecords();

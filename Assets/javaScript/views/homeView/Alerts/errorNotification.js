@@ -1,7 +1,7 @@
 import { createNewElement } from "../../components/createElement.js";
 let containerId = 0;
 
-export let accountCreateErr = (errorMsg) => {
+export let errorNotification = (errorMsg) => {
     containerId += 1;
     let errNotificationContainer = $("<div></div>");
     errNotificationContainer.addClass(`err_notification_container cont${containerId}`);

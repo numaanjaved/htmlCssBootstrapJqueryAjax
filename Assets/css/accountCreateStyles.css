@@ -37,11 +37,6 @@ main {
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
-  transition: all 0.7s ease;
-  -webkit-transition: all 0.7s ease;
-  -moz-transition: all 0.7s ease;
-  -ms-transition: all 0.7s ease;
-  -o-transition: all 0.7s ease;
   & .picture_container {
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
