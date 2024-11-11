@@ -9,17 +9,17 @@ let createAdmin = () => {
     localStorage.setItem('Data', JSON.stringify(tempArr));
 }
 let auth = () => {
-    document.cookie.includes("userName") ? window.location.href = "./home.html" : window.location.href = "./login.html";
+    if (document.cookie.includes("userName")) { window.location.href = "./home.html" } else { window.location.href = "./login.html"; }
 }
 
 let findAdmin = () => {
     let adminAcc = LS.find((rec) => rec.userType === "Admin");
-    return adminAcc ? true : false;
+    if (adminAcc) { return true; } else { return false; }
 };
 
 window.onload = () => {
     if (LS === null || LS === '[]') {
         createAdmin();
         auth();
-    } else { findAdmin() ? auth() : createAdmin(); }
+    } else { if (findAdmin()) { auth(); } else { createAdmin(); } }
 };
