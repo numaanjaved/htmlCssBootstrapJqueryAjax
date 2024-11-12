@@ -8,8 +8,7 @@ let setCookie = (cookieKey, cookieVal, expiryTime) => {
 export let redirect = () => {
     if (credentialsValidation()) {
         let userNameValue = $("#login_userName").val();
-        console.log(userNameValue);
-        setCookie(`userName`, userNameValue, 5);
+        setCookie(`userName`, userNameValue, 59);
         window.location.href = "/index.html";
     }
 }
