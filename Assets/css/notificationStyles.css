@@ -131,3 +131,10 @@ main {
 .blueBorder {
   border: 2px solid rgb(54, 78, 177);
 }
+
+.redBg {
+  background-color: #ffbcbc;
+}
+.redBorder {
+  border: 2px solid rgb(205, 86, 86);
+}

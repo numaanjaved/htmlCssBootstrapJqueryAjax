@@ -5,6 +5,7 @@ import { refreshRecords } from "./refreshRecords.js"
 import { selectedIndexUpdate, userFirstName, userLastName, userEmail, userContactNumber, userAddress, userBio, adminUsername, adminPassword, selectUser } from "./elementReferences.js";
 import { formImg } from "./form/imageUpload.js";
 import { createNewElement } from "../components/createElement.js";
+import { accountDeleted } from "./Alerts/accountDelete.js";
 let readProfile = (id) => {
     let userInstance = new User();
     let record = userInstance.Read(id)
@@ -16,6 +17,9 @@ let readProfile = (id) => {
     $(window).scrollTop("900");
 }
 let delProfile = (id) => {
+    let LS = JSON.parse(localStorage.getItem('Data'));
+    let currAcc = LS.find(user => user.userId === id);
+    accountDeleted(currAcc.pic);
     let userInstance = new User();
     userInstance.Delete(id);
     refreshRecords();
