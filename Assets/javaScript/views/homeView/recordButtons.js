@@ -8,14 +8,16 @@ import { createNewElement } from "../components/createElement.js";
 import { accountDeleted } from "./Alerts/accountDelete.js";
 import { errorNotification } from "./Alerts/errorNotification.js";
 let readProfile = (id) => {
-    let userInstance = new User();
-    let record = userInstance.Read(id)
-    modal([record.pic, `${record.firstName} ${record.lastName}`, record.email, record.contactNum, record.address, record.bio, record.userId]);
-    let allRecords = $(`.individual_user_data`);
-    $.each(allRecords, (ind, rec) => { $(rec).css("filter", "blur(3px)") });
-    $(".user_modal").css("display", "flex");
-    $(usersDataMainContainer).css("minHeight", "600px")
-    $(window).scrollTop("900");
+    try {
+        let userInstance = new User();
+        let record = userInstance.Read(id)
+        modal([record.pic, `${record.firstName} ${record.lastName}`, record.email, record.contactNum, record.address, record.bio, record.userId]);
+        let allRecords = $(`.individual_user_data`);
+        $.each(allRecords, (ind, rec) => { $(rec).css("filter", "blur(3px)") });
+        $(".user_modal").css("display", "flex");
+        $(usersDataMainContainer).css("minHeight", "600px")
+        $(window).scrollTop("900");
+    } catch (error) { errorNotification(`Error Occurred while reading Profile`); }
 }
 let delProfile = (id) => {
     try {
@@ -34,34 +36,40 @@ let hideAndScroll = () => {
     $("#reset_btn").html("Cancel");
 }
 let feedData = (recData) => {
-    $(formImg).attr("src", recData.pic)
-    userFirstName.val(recData.firstName);
-    userLastName.val(recData.lastName);
-    userEmail.val(recData.email);
-    userContactNumber.val(recData.contactNum);
-    userAddress.val(recData.address);
-    userBio.val(recData.bio);
-    $(selectUser).val(recData.userType);
-    hideAndScroll();
-    if (recData.userType === "Admin") {
-        let adminCont = $(".admin_attr_container ")[0];
-        adminCont.style.display = "flex";
-        $(".admin_heading").css("display", "block");
-        adminUsername.val(recData.adminName);
-        adminPassword.val(recData.adminPassword);
-    }
+    try {
+        $(formImg).attr("src", recData.pic)
+        userFirstName.val(recData.firstName);
+        userLastName.val(recData.lastName);
+        userEmail.val(recData.email);
+        userContactNumber.val(recData.contactNum);
+        userAddress.val(recData.address);
+        userBio.val(recData.bio);
+        $(selectUser).val(recData.userType);
+        hideAndScroll();
+        if (recData.userType === "Admin") {
+            let adminCont = $(".admin_attr_container ")[0];
+            adminCont.style.display = "flex";
+            $(".admin_heading").css("display", "block");
+            adminUsername.val(recData.adminName);
+            adminPassword.val(recData.adminPassword);
+        }
+    } catch (error) { errorNotification(`Error Occurred while feeding data in form`); }
 }
 let updateProfile = (id) => {
-    let LS = JSON.parse(localStorage.getItem('Data'));
-    let userClassInstance = new User();
-    let record = userClassInstance.Update(id);
-    let currRec = selectedIndexUpdate(record);
-    feedData(LS[currRec]);
+    try {
+        let LS = JSON.parse(localStorage.getItem('Data'));
+        let userClassInstance = new User();
+        let record = userClassInstance.Update(id);
+        let currRec = selectedIndexUpdate(record);
+        feedData(LS[currRec]);
+    } catch (error) { errorNotification(`Error occurred while updating profile`); }
 }
 export let readUpdateDelete = (userDataContainer, ProfileBtnOpsContainer, id) => {
-    let profileReadBtn = createNewElement(["button", "Ops_Buttons btn btn-success", ProfileBtnOpsContainer, `Read`, { id: "read_btn" }]);
-    let profileUpdateBtn = createNewElement(["button", "Ops_Buttons btn btn-primary", ProfileBtnOpsContainer, `Update`, { id: "update_btn" }]);
-    let profileDelBtn = createNewElement(["button", "Ops_Buttons btn btn-danger", ProfileBtnOpsContainer, `Delete`, { id: "delete_btn" }]);
+    try {
+        let profileReadBtn = createNewElement(["button", "Ops_Buttons btn btn-success", ProfileBtnOpsContainer, `Read`, { id: "read_btn" }]);
+        let profileUpdateBtn = createNewElement(["button", "Ops_Buttons btn btn-primary", ProfileBtnOpsContainer, `Update`, { id: "update_btn" }]);
+        let profileDelBtn = createNewElement(["button", "Ops_Buttons btn btn-danger", ProfileBtnOpsContainer, `Delete`, { id: "delete_btn" }]);
+    } catch (error) { errorNotification(`Error occurred while clicking on Buttons`); }
     $(profileReadBtn).click(e => readProfile(id));
     $(profileDelBtn).click(e => delProfile(id));
     $(profileUpdateBtn).click(e => updateProfile(id));

@@ -1,8 +1,12 @@
+import { errorNotification } from "./Alerts/errorNotification.js";
+
 export let usersDataArray = [];
 export let selectedIndex = null;
 export let selectedIndexUpdate = (value) => {
-    selectedIndex = value;
-    return selectedIndex;
+    try {
+        selectedIndex = value;
+        return selectedIndex;
+    } catch (error) { errorNotification(`Error in Selected Index Update`); }
 }
 export let userFirstName = $("#user_Fname");
 export let userLastName = $("#user_Lname");
