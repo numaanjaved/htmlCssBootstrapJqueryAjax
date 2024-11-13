@@ -10,7 +10,7 @@ export let redirect = () => {
         let userNameValue = $("#login_userName").val();
         setCookie(`userName`, userNameValue, 59);
         try {
-            window.location.href = "/index.html";
+            window.location.href = "./index.html";
         } catch (error) {
             window.location.href = "http://localhost/htmlCssBootstrapJqueryAjax/index.html";
         }
