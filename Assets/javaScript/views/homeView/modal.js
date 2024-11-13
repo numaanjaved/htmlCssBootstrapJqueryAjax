@@ -20,10 +20,9 @@ export let modal = ([profilePic, userName, userEmail, userContactNum, userAddres
         createNewElement(["p", "modal_data_headings", modalTextContainer, `Profile Description or Bio:`]);
         createNewElement(["p", "modal_data", modalTextContainer, `${userBio}`, { disabled: "disabled" }]);
         let btnContainer = createNewElement(["div", "modal_btn_container w-100 d-flex justify-content-center align-items-center", modalTextContainer]);
-        let modalCloseBtn = createNewElement(["button", "modal_close_btn btn btn-danger", btnContainer, `Close`]);
+        let modalCloseBtn = createNewElement(["button", "modal_close_btn btn btn-danger", btnContainer, `Close`, { id: `modal_close_btn` }]);
     } catch (error) { errorNotification(`Error occurred while creating Modal`); }
-
-    $(modalCloseBtn).click(() => {
+    $("#modal_close_btn").click(() => {
         try {
             let records = $(`.individual_user_data`);
             $.each(records, (ind, record) => { $(record).css("filter", "blur(0px)"); });

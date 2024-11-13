@@ -69,8 +69,8 @@ export let readUpdateDelete = (userDataContainer, ProfileBtnOpsContainer, id) =>
         let profileReadBtn = createNewElement(["button", "Ops_Buttons btn btn-success", ProfileBtnOpsContainer, `Read`, { id: "read_btn" }]);
         let profileUpdateBtn = createNewElement(["button", "Ops_Buttons btn btn-primary", ProfileBtnOpsContainer, `Update`, { id: "update_btn" }]);
         let profileDelBtn = createNewElement(["button", "Ops_Buttons btn btn-danger", ProfileBtnOpsContainer, `Delete`, { id: "delete_btn" }]);
+        $(profileReadBtn).click(e => readProfile(id));
+        $(profileDelBtn).click(e => delProfile(id));
+        $(profileUpdateBtn).click(e => updateProfile(id));
     } catch (error) { errorNotification(`Error occurred while clicking on Buttons`); }
-    $(profileReadBtn).click(e => readProfile(id));
-    $(profileDelBtn).click(e => delProfile(id));
-    $(profileUpdateBtn).click(e => updateProfile(id));
 };
