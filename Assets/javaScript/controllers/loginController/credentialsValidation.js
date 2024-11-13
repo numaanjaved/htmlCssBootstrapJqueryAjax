@@ -13,7 +13,7 @@ export let credentialsValidation = () => {
         nullCheck(userName, true);
         if (!adminInstance.matchCredentials(userName, userPassword)) {
             validationCheck = false;
-            invalidLogin(userName, false)
+            invalidLogin(userName, false);
         }
     };
     if (validationCheck) {
@@ -25,9 +25,11 @@ export let credentialsValidation = () => {
     }
 }
 let reset = () => {
-    $(userName).val("");
-    $(userPassword).val("");
-    $(".invalid_login_Err").html(``);
+    try {
+        $(userName).val("");
+        $(userPassword).val("");
+        $(".invalid_login_Err").html(``);
+    } catch (err) { errorNotification(`Error while form reset`) }
 };
 $(".login_form").submit((e) => {
     e.preventDefault();
