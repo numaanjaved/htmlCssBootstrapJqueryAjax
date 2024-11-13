@@ -61,6 +61,7 @@
     }
     > .modal_data {
       font-weight: 400;
+      line-break: anywhere;
     }
     > .modal_btn_container {
       margin-top: 1.5rem;

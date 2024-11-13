@@ -22,8 +22,9 @@ export let modal = ([profilePic, userName, userEmail, userContactNum, userAddres
         let btnContainer = createNewElement(["div", "modal_btn_container w-100 d-flex justify-content-center align-items-center", modalTextContainer]);
         let modalCloseBtn = createNewElement(["button", "modal_close_btn btn btn-danger", btnContainer, `Close`, { id: `modal_close_btn` }]);
     } catch (error) { errorNotification(`Error occurred while creating Modal`); }
-    $("#modal_close_btn").click(() => {
+    $(".modal_close_btn").click(() => {
         try {
+            $(".user_modal").remove()
             let records = $(`.individual_user_data`);
             $.each(records, (ind, record) => { $(record).css("filter", "blur(0px)"); });
             $(".user_modal").css("display", "none");
