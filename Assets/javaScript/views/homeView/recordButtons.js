@@ -25,9 +25,7 @@ let delProfile = (id) => {
         let userInstance = new User();
         userInstance.Delete(id);
         refreshRecords();
-    } catch (error) {
-        errorNotification(`Error While Deleting Account`);
-    }
+    } catch (error) { errorNotification(`Error While Deleting Account`); }
 }
 let hideAndScroll = () => {
     $(".select_container").attr("style", "display: none !important;");
