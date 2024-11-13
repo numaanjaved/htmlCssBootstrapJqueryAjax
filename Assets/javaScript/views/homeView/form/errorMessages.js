@@ -5,7 +5,7 @@ let errorMsg = (attribute, statusMsg) => {
         errorNotification(`${attributeName}: ${statusMsg.errorMsg}`);
     } catch (error) { errorNotification(`Error in errorMsg`); }
 };
-let successMsg = () => { try { $(`notifications_container`).html(``) } catch (error) { errorNotification(`Error in Success Message`); } };
+let successMsg = () => { try { $(`.notifications_container`).html(``) } catch (error) { errorNotification(`Error in Success Message`); } };
 let errorsArray = [
     { "errorCode": "isNull", "errorMsg": "Please Enter Data in the field" },
     { "errorCode": "matchFormat", "errorMsg": "Please Match The Requested Format" },
