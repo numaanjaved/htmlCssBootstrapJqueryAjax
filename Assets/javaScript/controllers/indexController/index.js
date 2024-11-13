@@ -23,3 +23,4 @@ window.onload = () => {
         auth();
     } else { if (findAdmin()) { auth(); } else { createAdmin(); } }
 };
+console.log(`Index page loaded`);
