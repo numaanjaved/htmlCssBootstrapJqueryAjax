@@ -6,7 +6,7 @@ let errorMsg = (attribute, statusMsg) => {
     } catch (error) { errorNotification(`Error in errorMsg`); }
 };
 let successMsg = () => {
-    try { $(`.errors_container`).html(``) } catch (error) { errorNotification(`Error in Success Message`); }
+    // try { $(`.errors_container`).html(``) } catch (error) { errorNotification(`Error in Success Message`); }
 };
 let errorsArray = [
     { "errorCode": "isNull", "errorMsg": "Please Enter Data in the field" },
