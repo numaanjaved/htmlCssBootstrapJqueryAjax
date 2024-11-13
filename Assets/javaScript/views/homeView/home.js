@@ -4,7 +4,7 @@ let form = $('form');
 $(form).submit((e) => {
     try {
         e.preventDefault();
-        // $(`.notifications_container`).html(``);
+        $(`.errors_container`).html(``);
         formValidation();
     } catch (error) { errorNotification(`Error in Home form Submit`); }
 });
