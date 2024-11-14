@@ -5,7 +5,7 @@ let setCookie = (cookieKey, cookieVal, expiryTime) => {
     try {
         let expiry = new Date();
         expiry.setTime(expiry.getTime() + (expiryTime * 60 * 1000));
-        document.cookie = `${cookieKey}=${encodeURIComponent(cookieVal)};expires=${expiry.toUTCString()};path=/`;
+        document.cookie = `${cookieKey}=${cookieVal};expires=${expiry.toUTCString()};path=/`;
     } catch (error) { errorNotification(`Error While setting Cookie`); }
 }
 export let redirect = () => {
