@@ -33,5 +33,6 @@ let reset = () => {
 };
 $(".login_form").submit((e) => {
     e.preventDefault();
+    $(`.errors_container`).html(``);
     redirect();
 });
