@@ -5,9 +5,6 @@ let errorMsg = (attribute, statusMsg) => {
         errorNotification(`${attributeName}: ${statusMsg.errorMsg}`);
     } catch (error) { errorNotification(`Error in errorMsg`); }
 };
-let successMsg = () => {
-    // try { $(`.errors_container`).html(``) } catch (error) { errorNotification(`Error in Success Message`); }
-};
 let errorsArray = [
     { "errorCode": "isNull", "errorMsg": "Please Enter Data in the field" },
     { "errorCode": "matchFormat", "errorMsg": "Please Match The Requested Format" },
@@ -28,17 +25,15 @@ let errorContainers = {
     select_user: "User type"
 };
 export let nullCheck = (attr, check) => {
-    try { if (check) { successMsg() } else { errorMsg(attr, errorsArray[0]); } } catch (error) { errorNotification(`Error in null Check`); }
+    try { if (!check) { errorMsg(attr, errorsArray[0]); } } catch (error) { errorNotification(`Error in null Check`); }
 };
 export let regexCheck = (attr, check) => {
-    try { if (check) { successMsg() } else { errorMsg(attr, errorsArray[1]); } } catch (err) { errorNotification(`Error in regex Check`); }
+    try { if (!check) { errorMsg(attr, errorsArray[1]); } } catch (err) { errorNotification(`Error in regex Check`); }
 };
 export let lenCheck = (attr, check) => {
-    try {
-        if (check) { successMsg() } else { errorMsg(attr, errorsArray[2]); }
-    } catch (error) { errorNotification(`Error in Length Check`); }
+    try { if (!check) { errorMsg(attr, errorsArray[2]); } } catch (error) { errorNotification(`Error in Length Check`); }
 };
 export let profileImgCheck = (attr, check) => {
-    try { if (check) { successMsg() } else { errorMsg(attr, errorsArray[3]); } } catch (error) { errorNotification(`Error in profile Image check`); }
+    try { if (!check) { errorMsg(attr, errorsArray[3]); } } catch (error) { errorNotification(`Error in profile Image check`); }
 };
-export let adminAccCheck = (attr, check = true) => { try { if (check) { successMsg() } else { errorMsg(attr, errorsArray[4]); } } catch (error) { errorNotification(`Error in Admin Account Check`); } };
+export let adminAccCheck = (attr, check = true) => { try { if (!check) { errorMsg(attr, errorsArray[4]); } } catch (error) { errorNotification(`Error in Admin Account Check`); } };
