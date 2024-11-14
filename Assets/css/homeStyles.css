@@ -124,12 +124,6 @@
             font-size: 2rem;
             color: var(--primary-font-color);
           }
-          & .error_msg {
-            font-family: "poppins", sans-serif;
-            font-weight: 500;
-            font-size: 1.5rem;
-            color: var(--error-color);
-          }
           & .user_inputs {
             height: 3rem;
             width: 100%;
@@ -192,12 +186,6 @@
             font-size: 2rem;
             color: var(--primary-font-color);
           }
-          > .error_msg {
-            font-family: "poppins", sans-serif;
-            font-weight: 500;
-            font-size: 1.5rem;
-            color: var(--error-color);
-          }
           & .limit_text {
             font-family: "poppins", sans-serif;
             font-weight: 500;
@@ -221,13 +209,6 @@
               margin-bottom: 1.5rem;
             }
             & .admin_attr_container {
-              display: none;
-            }
-            & .error_msg {
-              font-family: "poppins", sans-serif;
-              font-weight: 500;
-              font-size: 1.5rem;
-              color: var(--error-color);
               display: none;
             }
             & .admin_label {
@@ -386,33 +367,4 @@
     font-size: 1.5rem;
     color: var(--primary-font-color);
   }
-}
-
-/* error message */
-.bio_error {
-  display: none;
-}
-.Fname_error {
-  display: none;
-}
-.Lname_error {
-  display: none;
-}
-.address_error {
-  display: none;
-}
-.email_error {
-  display: none;
-}
-.contact_error {
-  display: none;
-}
-.user_admin {
-  display: block;
-}
-.user_admin_password {
-  display: block;
-}
-.userType_error {
-  display: block;
 }
