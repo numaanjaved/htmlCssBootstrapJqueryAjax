@@ -4,4 +4,4 @@ export let removeNotification = (id) => {
             $(`#${id}`).remove();
         } catch (error) { removeNotification(`Error occurred while removing notification`) }
     }, 60000)
-}
+};
