@@ -16,13 +16,7 @@ export let credentialsValidation = () => {
             invalidLogin(userName, false);
         }
     };
-    if (validationCheck) {
-        reset();
-        return true;
-    } else {
-        errorNotification(`Invalid Credentials`);
-        return false;
-    }
+    if (validationCheck) { reset(); return true; } else { errorNotification(`Invalid Credentials`); return false; }
 }
 let reset = () => {
     try {

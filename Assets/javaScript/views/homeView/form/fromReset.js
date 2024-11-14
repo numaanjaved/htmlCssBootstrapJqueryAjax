@@ -1,4 +1,4 @@
-import { selectedIndexUpdate, userFirstName, userLastName, userEmail, userContactNumber, userAddress, userBio, selectUser, adminUsername, adminPassword, } from "../elementReferences.js"
+import { selectedIndexUpdate, userFirstName, userLastName, userEmail, userContactNumber, userAddress, userBio, selectUser, adminUsername, adminPassword } from "../elementReferences.js"
 import { formImg } from "./imageUpload.js";
 import { attributes } from "../../../controllers/homeController/formValidation.js";
 import { errorNotification } from "../Alerts/errorNotification.js";

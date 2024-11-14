@@ -1,4 +1,4 @@
-import { userFirstName, userLastName, userEmail, userContactNumber, userAddress, userBio, selectUser, adminUsername, adminPassword, usersDataArray } from "../../views/homeView/elementReferences.js";
+import { userFirstName, userLastName, userEmail, userContactNumber, userAddress, userBio, selectUser, adminUsername, adminPassword } from "../../views/homeView/elementReferences.js";
 import { formImg } from "../../views/homeView/form/imageUpload.js";
 import { lenCheck, nullCheck, profileImgCheck, regexCheck, adminAccCheck } from "../../views/homeView/form/errorMessages.js";
 import { User } from "../../models/User.js";

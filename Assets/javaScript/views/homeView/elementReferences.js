@@ -1,5 +1,4 @@
 import { errorNotification } from "./Alerts/errorNotification.js";
-
 export let usersDataArray = [];
 export let selectedIndex = null;
 export let selectedIndexUpdate = (value) => {
